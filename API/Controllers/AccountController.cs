@@ -9,7 +9,6 @@ namespace API.Controllers
       [Route("api/[controller]")]
       public class AccountController : ControllerBase
       {
-
             public readonly Context _context;
             private readonly ITokenService _tokenService;
 

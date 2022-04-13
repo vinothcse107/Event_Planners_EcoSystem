@@ -5,8 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // => Extensions
 builder.Services.BuilderServices(builder.Configuration);
-builder.Services.AddMvc()
-  .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>());
 
 // Add services to the container.
 builder.Services.AddControllers();

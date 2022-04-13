@@ -8,9 +8,11 @@ namespace API.Extension
       {
             public static IServiceCollection BuilderServices(this IServiceCollection services, IConfiguration config)
             {
+                  // Database Connection Service
                   services.AddDbContext<Context>(o =>
                       o.UseSqlServer(config.GetConnectionString("API")));
 
+                  // JWT Token Authentication Service
                   services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                  .AddJwtBearer(options =>
                   {
@@ -23,6 +25,13 @@ namespace API.Extension
                         };
                   });
 
+                  // FluentValidation Validation Service
+                  services.AddMvc().AddFluentValidation(fv =>
+                        {
+                              fv.RegisterValidatorsFromAssemblyContaining<Program>();
+                        });
+
+                  // User JWT Token Generation Service
                   services.AddScoped<ITokenService, TokenService>();
                   return services;
             }
