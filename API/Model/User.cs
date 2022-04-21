@@ -17,8 +17,7 @@ namespace API.Model
             public string Role { get; set; }
             public byte[] PasswordHash { get; set; }
             public byte[] PasswordSalt { get; set; }
-            public ICollection<Events> UserEvents { get; set; }
-            public ICollection<Reviews> User_Event_Reviews { get; set; }
+            public ICollection<Event> UserEvents { get; set; }
 
       }
 }

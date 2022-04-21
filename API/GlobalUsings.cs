@@ -12,4 +12,7 @@ global using API.Services;
 global using API.Interfaces;
 global using API.DTO;
 global using FluentValidation.AspNetCore;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using System.ComponentModel.DataAnnotations;
+
 

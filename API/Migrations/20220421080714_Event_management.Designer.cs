@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220413105442_UserSetup1")]
-    partial class UserSetup1
+    [Migration("20220421080714_Event_management")]
+    partial class Event_management
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("API.Model.Events", b =>
+            modelBuilder.Entity("API.Model.Event", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -32,21 +32,50 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("UserId")
+                    b.Property<string>("EventName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EventTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Hall_ID")
                         .HasColumnType("int");
 
-                    b.Property<string>("UsersUsername")
-                        .IsRequired()
+                    b.Property<string>("User_ID")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("UsersUsername");
+                    b.HasIndex("Hall_ID");
+
+                    b.HasIndex("User_ID");
 
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("API.Model.Reviews", b =>
+            modelBuilder.Entity("API.Model.Hall", b =>
+                {
+                    b.Property<int>("HallID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HallID"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hall_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("HallID");
+
+                    b.ToTable("Halls");
+                });
+
+            modelBuilder.Entity("API.Model.Review", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -54,18 +83,16 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("Review")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
+                    b.Property<int>("EventID")
                         .HasColumnType("int");
 
-                    b.Property<string>("UsersUsername")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("HallID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReviewContent")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("UsersUsername");
 
                     b.ToTable("Reviews");
                 });
@@ -101,31 +128,31 @@ namespace API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("API.Model.Events", b =>
+            modelBuilder.Entity("API.Model.Event", b =>
                 {
-                    b.HasOne("API.Model.User", "Users")
-                        .WithMany("UserEvents")
-                        .HasForeignKey("UsersUsername")
+                    b.HasOne("API.Model.Hall", "Halls")
+                        .WithMany("HallEvents")
+                        .HasForeignKey("Hall_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("API.Model.User", "Users")
+                        .WithMany("UserEvents")
+                        .HasForeignKey("User_ID");
+
+                    b.Navigation("Halls");
 
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("API.Model.Reviews", b =>
+            modelBuilder.Entity("API.Model.Hall", b =>
                 {
-                    b.HasOne("API.Model.User", "Users")
-                        .WithMany("User_Event_Reviews")
-                        .HasForeignKey("UsersUsername");
-
-                    b.Navigation("Users");
+                    b.Navigation("HallEvents");
                 });
 
             modelBuilder.Entity("API.Model.User", b =>
                 {
                     b.Navigation("UserEvents");
-
-                    b.Navigation("User_Event_Reviews");
                 });
 #pragma warning restore 612, 618
         }

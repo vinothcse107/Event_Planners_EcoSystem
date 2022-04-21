@@ -1,10 +1,16 @@
 
+using System.Text.Json.Serialization;
 using API.ModelValidation;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // => Extensions
 builder.Services.BuilderServices(builder.Configuration);
+
+builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                    {
+                          options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    });
 
 // Add services to the container.
 builder.Services.AddControllers();
