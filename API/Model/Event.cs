@@ -31,7 +31,5 @@ namespace API.Model
             public DateTime EventTime { get; set; }
             public string User_ID { get; set; }
             public int Hall_ID { get; set; }
-
-
       }
 }

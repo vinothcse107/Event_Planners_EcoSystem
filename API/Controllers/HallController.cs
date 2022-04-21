@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,58 +34,36 @@ namespace API.Controllers
                         };
                         var x = await _context.Halls.AddAsync(hall);
                         await _context.SaveChangesAsync();
-                        return Ok(x);
-                  }
-            }
-            [HttpPost("Add_Events")]
-            public async Task<IActionResult> Post([FromBody] EventDTO model)
-            {
-                  if (model == null)
-                  {
-                        return BadRequest();
-                  }
-                  else
-                  {
-                        var eve = new Event
-                        {
-                              EventName = model.EventName,
-                              EventTime = model.EventTime,
-                              User_ID = model.User_ID,
-                              Hall_ID = model.Hall_ID
-                        };
-                        var x = await _context.Events.AddAsync(eve);
-                        await _context.SaveChangesAsync();
-                        return Ok(x);
-                  }
-            }
-            [HttpPost("Add_Review")]
-            public async Task<IActionResult> Post([FromBody] Review model)
-            {
-                  if (model == null)
-                  {
-                        return BadRequest();
-                  }
-                  else
-                  {
-                        var x = await _context.Reviews.AddAsync(model);
-                        await _context.SaveChangesAsync();
-                        return Ok(x);
+                        return Ok("Halls Added");
                   }
             }
 
-            [HttpGet("Get_Reviews")]
+            [HttpGet("Get_Halls")]
             public async Task<IActionResult> Get()
             {
                   try
                   {
                         var x = await _context.Halls.ToListAsync();
-                        return Ok(new { StatusCode = 200, Message = "Hall Added" });
+                        return Ok(x);
                   }
                   catch (Exception e)
                   {
                         return Ok(e.StackTrace);
                   }
 
+            }
+            [HttpGet("Get_Halls/{Location}")]
+            public async Task<IActionResult> Get(string Location)
+            {
+                  try
+                  {
+                        var x = await _context.Halls.Where(i => i.Location.Equals(Location)).ToListAsync();
+                        return Ok(x);
+                  }
+                  catch (Exception e)
+                  {
+                        return Ok(e.StackTrace);
+                  }
             }
 
       }
