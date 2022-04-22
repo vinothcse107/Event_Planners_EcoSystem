@@ -1,0 +1,27 @@
+[
+      {
+            "Hall_Name": "GRT",
+            "Location": "chennai",
+            "Description": "nulla laborum et mollit qui amet aliqua nostrud nulla ullamco"
+      },
+      {
+            "Hall_Name": "Park Plaza",
+            "Location": "banglore",
+            "Description": "tempor adipisicing eu Lorem anim tempor tempor esse laboris et"
+      },
+      {
+            "Hall_Name": "AMR",
+            "Location": "kochi",
+            "Description": "proident ipsum laborum mollit excepteur aute laborum ipsum anim excepteur"
+      },
+      {
+            "Hall_Name": "CJ Pallazio",
+            "Location": "chennai",
+            "Description": "id consequat officia consequat ipsum ad Lorem mollit minim et"
+      },
+      {
+            "Hall_Name": "RayBay",
+            "Location": "chennai",
+            "Description": "anim minim enim occaecat ullamco adipisicing duis ea proident nostrud"
+      }
+]

@@ -1,0 +1,39 @@
+{
+      "users": [
+            "{{repeat(5, 7)}}",
+            {
+                  "Name": "{{firstName()}}",
+                  "Username": "{{surname()}}",
+                  "Email": "{{email()}}",
+                  "Phone": "{{ phone()}}",
+                  "Location": "{{random(\"salem\", \"kochi\", \"chennai\" , \"banglore\")}}",
+                  "Role": "{{random(\"member\" , \"admin\")}}",
+                  "Password_id": "{{surname()}}"
+            }
+      ],
+      "Halls": [
+            "{{repeat(5)}}",
+            {
+                  "Hall_Name": "{{random(\"GRT\",\"CJ Pallazio\",\"AMR\",\"Park Plaza\",\"RayBay\")}}",
+                  "Location": "{{random(\"salem\", \"kochi\", \"chennai\" , \"banglore\")}}",
+                  "Description": "{{lorem(10, \"words\")}}"
+            }
+      ],
+      "Events": [
+            "{{repeat(5, 7)}}",
+            {
+                  "EventName": "{{lorem(3 , \"words\")}}",
+                  "EventTime": "{{date(new Date(2022, 0, 1), new Date(2023,12,31), \"YYYY-MM-ddThh:mm:ss\")}}",
+                  "User_ID": "{{random(\"vinosiva\" ,  \"Hyde\" , \"Mays\")}}",
+                  "Hall_ID": "{{integer(1,5)}}"
+            }
+      ],
+      "Reviews": [
+            "{{repeat(5, 7)}}",
+            {
+                  "reviewContent": "{{lorem(5 , \"words\")}}",
+                  "eventID": "{{random(3,5,2)}}",
+                  "hallID": "{{random(3,5,2)}}"
+            }
+      ]
+}

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-      public partial class Init : Migration
+      public partial class InitSeed : Migration
       {
             protected override void Up(MigrationBuilder migrationBuilder)
             {
@@ -93,7 +93,7 @@ namespace API.Migrations
                           column: x => x.HallID,
                           principalTable: "Halls",
                           principalColumn: "HallID",
-                          onDelete: ReferentialAction.NoAction);
+                          onDelete: ReferentialAction.Restrict);
                       });
 
                   migrationBuilder.CreateIndex(

@@ -1,0 +1,74 @@
+[
+      {
+            "Name": "Vinoth",
+            "Username": "vinosiva",
+            "Email": "vinosiva.2001@gmail.com",
+            "Phone": "6383705751",
+            "Location": "salem",
+            "Role": "member",
+            "Password_id": "Password"
+      },
+      {
+            "Name": "Combs",
+            "Username": "Everett",
+            "Email": "combseverett@slofast.com",
+            "Phone": "8215612701",
+            "Location": "kochi",
+            "Role": "admin",
+            "Password_id": "Cochran"
+      },
+      {
+            "Name": "Sheppard",
+            "Username": "Adkins",
+            "Email": "sheppardadkins@slofast.com",
+            "Phone": "9344283776",
+            "Location": "kochi",
+            "Role": "member",
+            "Password_id": "Myers"
+      },
+      {
+            "Name": "Allyson",
+            "Username": "Hyde",
+            "Email": "allysonhyde@slofast.com",
+            "Phone": "8805463356",
+            "Location": "chennai",
+            "Role": "member",
+            "Password_id": "Estrada"
+      },
+      {
+            "Name": "Brianna",
+            "Username": "Mays",
+            "Email": "briannamays@slofast.com",
+            "Phone": "9314432715",
+            "Location": "kochi",
+            "Role": "admin",
+            "Password_id": "Hale"
+      },
+      {
+            "Name": "Liz",
+            "Username": "Delgado",
+            "Email": "lizdelgado@slofast.com",
+            "Phone": "9734792969",
+            "Location": "chennai",
+            "Role": "member",
+            "Password_id": "Ramos"
+      },
+      {
+            "Name": "Ross",
+            "Username": "Juarez",
+            "Email": "rossjuarez@slofast.com",
+            "Phone": "8164332648",
+            "Location": "salem",
+            "Role": "admin",
+            "Password_id": "Payne"
+      },
+      {
+            "Name": "Myra",
+            "Username": "Sargent",
+            "Email": "myrasargent@slofast.com",
+            "Phone": "8195212092",
+            "Location": "kochi",
+            "Role": "admin",
+            "Password_id": "Park"
+      }
+]
