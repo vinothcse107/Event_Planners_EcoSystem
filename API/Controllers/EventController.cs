@@ -19,7 +19,7 @@ namespace API.Controllers
             }
 
             [HttpPost("Add_Events")]
-            public async Task<IActionResult> Post([FromBody] EventDTO model)
+            public async Task<IActionResult> PostEvents([FromBody] EventDTO model)
             {
                   if (model == null)
                   {
@@ -34,31 +34,39 @@ namespace API.Controllers
                               User_ID = model.User_ID,
                               Hall_ID = model.Hall_ID
                         };
-                        var x = await _context.Events.AddAsync(eve);
-                        await _context.SaveChangesAsync();
-                        return Ok("Event Added");
+                        try
+                        {
+                              var x = await _context.Events.AddAsync(eve);
+                              await _context.SaveChangesAsync();
+                              return Ok("Event Added");
+                        }
+                        catch
+                        {
+                              return BadRequest("Event Not Added , Something Went Wrong !!!");
+                        }
+
                   }
             }
             [HttpGet("Get_Events")]
-            public async Task<IActionResult> Get()
+            public async Task<IActionResult> GetAllEvents()
             {
                   try
                   {
                         var x = await _context.Events.ToListAsync();
                         return Ok(x);
                   }
-                  catch (Exception e)
+                  catch
                   {
-                        return Ok(e.StackTrace);
+                        return NotFound("NotFound");
                   }
 
             }
             [HttpGet("Get_Events/{userId}")]
-            public async Task<IActionResult> Get(string userId)
+            public async Task<IActionResult> GetEventsByUser(string userId)
             {
                   try
                   {
-                        var x = await _context.Users
+                        var x = await _context.Users.Where(a => a.Username.Equals(userId))
                               .Join(_context.Events,
                                      user => user.Username,
                                      events => events.Users.Username,
@@ -67,15 +75,17 @@ namespace API.Controllers
                                            User = user.Username,
                                            EventName = events.EventName,
                                            EventTime = events.EventTime,
+                                           HallName = events.Halls.Hall_Name,
+                                           Location = events.Halls.Location,
+                                           Description = events.Halls.Description
                                      })
-                                .ToListAsync();
+                              .ToListAsync();
                         return Ok(x);
                   }
-                  catch (Exception e)
+                  catch
                   {
-                        return Ok(e.StackTrace);
+                        return NotFound();
                   }
-
             }
 
       }

@@ -92,6 +92,10 @@ namespace API.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("EventID");
+
+                    b.HasIndex("HallID");
+
                     b.ToTable("Reviews");
                 });
 
@@ -143,8 +147,34 @@ namespace API.Migrations
                     b.Navigation("Users");
                 });
 
+            modelBuilder.Entity("API.Model.Review", b =>
+                {
+                    b.HasOne("API.Model.Event", "EventReviews")
+                        .WithMany("EventReviews")
+                        .HasForeignKey("EventID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API.Model.Hall", "HallReviews")
+                        .WithMany("EventReviews")
+                        .HasForeignKey("HallID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EventReviews");
+
+                    b.Navigation("HallReviews");
+                });
+
+            modelBuilder.Entity("API.Model.Event", b =>
+                {
+                    b.Navigation("EventReviews");
+                });
+
             modelBuilder.Entity("API.Model.Hall", b =>
                 {
+                    b.Navigation("EventReviews");
+
                     b.Navigation("HallEvents");
                 });
 

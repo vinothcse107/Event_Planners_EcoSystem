@@ -11,10 +11,10 @@ namespace API.ModelValidation
                   RuleFor(x => x.Location).NotNull().NotEmpty();
                   RuleFor(x => x.Role).Must(x =>
                   {
-                        string[] roles = { "user", "admin", "hall_owner" };
+                        string[] roles = { "member", "admin", "hall_owner" };
                         foreach (string r in roles)
                         {
-                              if (x.Equals(r)) return true;
+                              if (x.ToLower().Equals(r)) return true;
                         }
                         return false;
                   }).WithMessage("Invalid Access Role");

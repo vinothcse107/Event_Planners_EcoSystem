@@ -39,7 +39,7 @@ namespace API.Controllers
             }
 
             [HttpGet("Get_Halls")]
-            public async Task<IActionResult> Get()
+            public async Task<IActionResult> GetAllHalls()
             {
                   try
                   {
@@ -53,7 +53,7 @@ namespace API.Controllers
 
             }
             [HttpGet("Get_Halls/{Location}")]
-            public async Task<IActionResult> Get(string Location)
+            public async Task<IActionResult> GetHallsByLocation(string Location)
             {
                   try
                   {

@@ -12,7 +12,9 @@ namespace API.Model
             public string Hall_Name { get; set; }
             public string Location { get; set; }
             public string Description { get; set; }
-            public ICollection<Event> HallEvents { get; set; }
+            public virtual ICollection<Event> HallEvents { get; set; }
+            public virtual ICollection<Review> EventReviews { get; set; }
+
       }
 
       public class HallDTO

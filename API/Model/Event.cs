@@ -22,6 +22,8 @@ namespace API.Model
             [JsonIgnore]
             public Hall Halls { get; set; }
 
+            public virtual ICollection<Review> EventReviews { get; set; }
+
       }
       public class EventDTO
       {
