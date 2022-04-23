@@ -4,7 +4,7 @@
       <div class="col-md-12 navbar">
         <a routerLink="/" class="logo navbar-brand text-white offset-md-2">WD</a>
         <ul class="nav">
-          <li class="nav-item active"><a  routerLink="/login" class="nav-link">Login</a></li>
+          <li class="nav-item "><a  routerLink="/login" class="nav-link">Login</a></li>
           <li class="nav-item"><a  routerLink="/signup" class="nav-link">Sign Up</a></li>
           <li class="nav-item"><a  routerLink="#" class="nav-link">Contact Us</a></li>
         </ul>
@@ -38,6 +38,41 @@
     </div>
   </div>
 </section>
+<h1 style="margin:1em 3em ;">Halls</h1>
+<section class="wrapper">
+  <div class="container mx-auto mt-4">
+
+    <div class="row" style="padding : 20px">
+      <div class="col-md-4" *ngFor="let d of data;">
+        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+          style="background-image:url({{d.img}});">
+          <img class="card-img d-none" src={{d.img}}
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">Thought Leadership</small>
+              <h4 class="card-title mt-0 "><a class="text-white">{{d.Description}}</a></h4>
+              <small><i class="far fa-clock"></i> October 15, 2020</small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img class="mr-3 rounded-circle"
+                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                  alt="Generic placeholder image" style="max-width:50px">
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">{{d.HallName}}</h6>
+                  <small>{{d.Location}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h1 style="margin:1em 3em ;">Photographers</h1>
 <section class="wrapper">
   <div class="container mx-auto mt-4">
 
@@ -68,7 +103,147 @@
           </div>
         </div>
       </div>
-     
+      <div class="col-md-4">
+        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+          style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">Thought Leadership</small>
+              <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur
+                  dipisi?</a></h4>
+              <small><i class="far fa-clock"></i> October 15, 2020</small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img class="mr-3 rounded-circle"
+                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                  alt="Generic placeholder image" style="max-width:50px">
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">Daring Hall</h6>
+                  <small>Shavepet</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+          style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">Thought Leadership</small>
+              <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur
+                  dipisi?</a></h4>
+              <small><i class="far fa-clock"></i> October 15, 2020</small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img class="mr-3 rounded-circle"
+                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                  alt="Generic placeholder image" style="max-width:50px">
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">Vijay Mahal</h6>
+                  <small>Ammapet</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<h1 style="margin:1em 3em ;">Catreing</h1>
+<section class="wrapper">
+  <div class="container mx-auto mt-4">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+          style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">Thought Leadership</small>
+              <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur
+                  dipisi?</a></h4>
+              <small><i class="far fa-clock"></i> October 15, 2020</small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img class="mr-3 rounded-circle"
+                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                  alt="Generic placeholder image" style="max-width:50px">
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">Kalai Mahal</h6>
+                  <small>Junction</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+          style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">Thought Leadership</small>
+              <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur
+                  dipisi?</a></h4>
+              <small><i class="far fa-clock"></i> October 15, 2020</small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img class="mr-3 rounded-circle"
+                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                  alt="Generic placeholder image" style="max-width:50px">
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">Daring Hall</h6>
+                  <small>Shavepet</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+          style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">Thought Leadership</small>
+              <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur
+                  dipisi?</a></h4>
+              <small><i class="far fa-clock"></i> October 15, 2020</small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img class="mr-3 rounded-circle"
+                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                  alt="Generic placeholder image" style="max-width:50px">
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">Vijay Mahal</h6>
+                  <small>Ammapet</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 
