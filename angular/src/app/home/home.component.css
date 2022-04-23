@@ -171,6 +171,10 @@
 	 background-repeat:no-repeat;
 	 background-position: center center;
   }
+  .ul
+  {
+	  color: #ccc;
+  }
   .card .card-has-bg:before {
 	   content: '';
 	   position: absolute;

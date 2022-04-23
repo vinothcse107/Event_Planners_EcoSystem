@@ -26,23 +26,13 @@ export class HomeComponent implements OnInit {
         "img" : "https://source.unsplash.com/600x900/?tree,nature"
       },
       {
-        "HallName": "CJ Pallazio",
+        "HallName": "JJ Pallazio",
         "Location": "chennai",
         "Description": "duis labore et irure quis aliqua aliquip aute non aliquip",
-        "img" : "https://source.unsplash.com/600x900/?tree,nature"
+        "img" : 
+        "https://source.unsplash.com/600x900/?computer,design"
       },
-      {
-        "HallName": "GRT",
-        "Location": "banglore",
-        "Description": "exercitation non consequat irure labore culpa fugiat occaecat nostrud officia",
-        "img":"https://source.unsplash.com/600x900/?tree,nature"
-      },
-      {
-        "HallName": "CJ Pallazio",
-        "Location": "kochi",
-        "Description": "in veniam magna sunt in Lorem consequat enim labore veniam",
-        "img":"https://source.unsplash.com/600x900/?tree,nature"
-      }
+      
     ]
 
     
