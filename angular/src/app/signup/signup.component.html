@@ -1,0 +1,60 @@
+<section class="vh-100" style="background-color: #9A616D;">
+    <div class="container py-5 h-100">
+        
+   <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-6">
+        <form [formGroup]="SignUp">
+            <div class="text-center mb-0 h1" style="color: beige; font-weight:700; font-size: 4em;">
+              <p>Sign up</p>
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+        
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+        
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+        
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+        
+            <p class="text-center">or:</p>
+        
+            <!-- Name input -->
+            <div class="form-outline mb-4 form-group form-row">
+              <input type="text" id="registerName" class="form-control " formControlName="name"  placeholder="Name"/>
+            </div>
+        
+            <!-- Username input -->
+            <div class="form-outline mb-4 form-group form-row">
+              <input type="text" id="registerUsername" class="form-control" formControlName="username" placeholder="Username"/>
+            </div>
+        
+            <!-- Email input -->
+            <div class="form-outline mb-4 form-group form-row">
+              <input type="email" id="registerEmail" class="form-control" formControlName="email" placeholder="Email"/>
+            </div>
+        
+            <!-- Password input -->
+            <div class="form-outline mb-4 form-group form-row">
+              <input type="password" id="registerPassword" class="form-control" formControlName="password" placeholder="Password" />
+            </div>
+        
+            <!-- Repeat Password input -->
+            <div class="form-outline mb-4 form-group form-row">
+              <input type="password" id="registerRepeatPassword" class="form-control" formControlName="confirm" placeholder="Repeat password"/>
+            </div>
+        
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-3" (click)="Signup()">Sign in</button>
+          </form>
+
+      </div>
+  </div>
+        </div>
+        </section>
