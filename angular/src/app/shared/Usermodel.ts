@@ -4,6 +4,10 @@ export interface UserModel{
     name: string,
     username: string,
     email:string,
-    password:string
+    password:string,
+    phone:string,
+    location:string,
+    role:string
+
 
 }

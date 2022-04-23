@@ -16,9 +16,13 @@ export class SignupComponent implements OnInit {
     this.SignUp= new FormGroup({
       // "users": new FormControl(null,Validators.required),
       "name": new FormControl(null,[Validators.required]),
-      "username": new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z0-9_]{8,12}")]),
+      "username": new FormControl(null,[Validators.required,]),
       "email": new FormControl(null,[Validators.required,Validators.email]),
       "password": new FormControl(null,Validators.required),
+      "phone": new FormControl(null,[Validators.required]),
+      "location": new FormControl(null,[Validators.required,]),
+      
+      "role": new FormControl(null,[Validators.required,]),
       "confirmpass": new FormControl(null,[Validators.minLength(8),Validators.maxLength(16)])
     })
   }
@@ -28,7 +32,11 @@ export class SignupComponent implements OnInit {
       name : this.SignUp.get('name')?.value,
       username : this.SignUp.get('username')?.value,
       email : this.SignUp.get('email')?.value,
-      password : this.SignUp.get('mobile')?.value,
+      password : this.SignUp.get('password')?.value,
+      phone : this.SignUp.get('phone')?.value,
+      location : this.SignUp.get('location')?.value,
+      role:"user"
+      
       
   }
   }
