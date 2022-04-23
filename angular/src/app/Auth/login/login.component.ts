@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   LoginF!: FormGroup
-  constructor() { }
+  constructor(private _loginService : LoginService) { }
 
   ngOnInit(): void {
     this.LoginF = new FormGroup({
@@ -21,6 +22,16 @@ export class LoginComponent implements OnInit {
   {
     let _email = this.LoginF.get('email')?.value;
     let _password = this.LoginF.get('password')?.value;
+
+    this._loginService.LoginCheck(_email , _password).subscribe({
+      next : (data) => {
+        localStorage.setItem("user" , JSON.stringify(data));
+      },
+      error: (data) =>{
+        console.log("An Error Occured");
+      }
+    })
+
   }
 
 }

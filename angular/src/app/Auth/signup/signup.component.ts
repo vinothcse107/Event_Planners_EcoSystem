@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserModel } from '../shared/Usermodel';
+import { LoginService } from 'src/app/services/login.service';
+import { UserModel } from '../../shared/Usermodel';
 
 @Component({
   selector: 'app-signup',
@@ -10,15 +11,16 @@ import { UserModel } from '../shared/Usermodel';
 export class SignupComponent implements OnInit {
   SignUp!: FormGroup;
 
-  constructor() { }
+  constructor(private _loginService : LoginService) { }
 
   ngOnInit(): void {
     this.SignUp= new FormGroup({
-      // "users": new FormControl(null,Validators.required),
       "name": new FormControl(null,[Validators.required]),
       "username": new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z0-9_]{8,12}")]),
       "email": new FormControl(null,[Validators.required,Validators.email]),
       "password": new FormControl(null,Validators.required),
+      "phone" : new FormControl(null, [Validators.required]),
+      "role" : new FormControl(null , [Validators.required]),
       "confirmpass": new FormControl(null,[Validators.minLength(8),Validators.maxLength(16)])
     })
   }
@@ -29,8 +31,11 @@ export class SignupComponent implements OnInit {
       username : this.SignUp.get('username')?.value,
       email : this.SignUp.get('email')?.value,
       password : this.SignUp.get('mobile')?.value,
-      
+      phone : this.SignUp.get("phone")?.value,
+      location : this.SignUp.get("location")?.value,
+      role : "user"
   }
+  this._loginService.SignupCheck(body);
   }
 
 }
