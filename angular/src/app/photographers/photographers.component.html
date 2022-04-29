@@ -1,0 +1,97 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Photographer</h3>
+        </div>
+<div class="form">
+        <ul class="list-unstyled components">
+            <p>Wanna Try Filters </p>
+            <li>
+                <label >Price Range</label>
+            </li>
+            <li>
+                <label>Cook </label><input type="checkbox" name="Cook" id="">
+            </li>
+            <li>
+                <label >Photographers</label><input type="checkbox" name="Photo" id=""> </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+    </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                    <!-- <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button> -->
+                    <div class="input-group search-bar">
+                        <input type="text" id="form1" class="form-control"  [(ngModel)]="searchString" placeholder="Search by Location"/>
+                        <button type="button" class="btn btn-primary">
+                          <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Photographers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Catering</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="wrapper">
+            <div class="container mx-auto mt-4">
+          
+              <div class="row">
+                <div class="col-md-4" *ngFor="let card of photo | hallSearch:searchString:'Location'">
+                  <div class="card text-white card-has-bg click-col mr-3"  style="width: 18rem;"
+                    style="background-image:url();">
+                    <img class="card-img d-none" src={{card.img}}
+                      alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                      <div class="card-body">
+                        <h4 class="card-title mt-3 "><a class="text-white" (click)="View(card.id)"> {{card.Special}}</a></h4>
+                       
+                      </div>
+                      <div class="card-footer">
+                        <div class="media">
+                          <img class="mr-3 rounded-circle"
+                            src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                            alt="Generic placeholder image" style="max-width:50px">
+                          <div class="media-body">
+                            <h6 class="my-0 text-white d-block">{{card.name}}</h6>
+                            <small>{{card.Experience}} years</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+          
+            </div>
+          </section>
+          
+
+       
+</div>

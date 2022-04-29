@@ -1,42 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-halls',
+  templateUrl: './halls.component.html',
+  styleUrls: ['./halls.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HallsComponent implements OnInit {
   data!: HallsShow[];
-  cook!: CookShow[];
+  searchString:string='';
 
-  constructor(private routes: Router) { }
+  constructor( private routes: Router) { }
 
   ngOnInit(): void {
-      let data : HallsShow[];
-      let cook: CookShow[];
-      this.cook = [
-        {
-          "Special": "CJ Pallazio",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-        {
-          "Special": "CJ Pallazio",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-        {
-          "Special": "CJ Pallazio",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-
-      ]
-      this.data = [
+    let data:HallsShow[];
+    this.data = [
       {
         "id":1,
         "HallName": "CJ Pallazio",
@@ -61,8 +39,6 @@ export class HomeComponent implements OnInit {
       },
       
     ]
-
-    
   }
   View(hall: number)
   {
@@ -70,12 +46,8 @@ export class HomeComponent implements OnInit {
 
 
   }
-}
-export interface CookShow{
-  Special:string,
-  Experience: number,
-  name:string,
-  img:string
+  
+  
 
 }
 export interface HallsShow{

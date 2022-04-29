@@ -16,7 +16,7 @@
         <div class="backfade">
           <div class="items">
             <div class="info">
-              <h1>Wedding Planners</h1>
+              <h1>Event Planners</h1>
               <div class="searchbar d-flex justify-content-center">
                 <div class="input-group justify-content-center">
                   <div class="form-outline">
@@ -38,19 +38,21 @@
     </div>
   </div>
 </section>
-<h1 style="margin:1em 3em ;">Halls</h1>
+<a routerLink="halls" class=" text-dark"><h1 style="margin:1em 3em ;">Halls</h1>
+</a>
 <section class="wrapper">
   <div class="container mx-auto mt-4">
 
     <div class="row">
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
+      <div class="col-md-4" *ngFor="let card of data">
+        <a class="text-white" (click)="View(card.id)">
+        <div class="card text-white card-has-bg click-col mr-3"  style="width: 18rem;"
+          style="background-image:url();">
+          <img class="card-img d-none" src={{card.img}}
             alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
           <div class="card-img-overlay d-flex flex-column">
             <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" >Fit for Aspicious Occations </a></h4>
+              <h4 class="card-title mt-3 "> {{card.Description}}</h4>
              
             </div>
             <div class="card-footer">
@@ -59,67 +61,20 @@
                   src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
                   alt="Generic placeholder image" style="max-width:50px">
                 <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Kalai Mahal</h6>
-                  <small>Junction</small>
+                  <h6 class="my-0 text-white d-block">{{card.HallName}}</h6>
+                  <small>{{card.Location}}</small>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </a>
       </div>
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" >Filled with blessings</a></h4>
-
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Daring Hall</h6>
-                  <small>Shavepet</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white"> Cherised with the blessing</a></h4>
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Vijay Mahal</h6>
-                  <small>Ammapet</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+     
     </div>
 
   </div>
 </section>
-
 <h1 style="margin:1em 3em ;">Photographers</h1>
 <section class="wrapper">
   <div class="container mx-auto mt-4">
@@ -201,19 +156,21 @@
   </div>
 </section>
 
-<h1 style="margin:1em 3em ;">Catreing</h1>
+<a routerLink="catering" class="text-dark">
+<h1 style="margin:1em 3em ;">Catreing</h1></a>
 <section class="wrapper">
   <div class="container mx-auto mt-4">
 
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let cooks of cook">
+        
         <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
+          style="background-image:url({{cooks.img}});">
+          <img class="card-img d-none" src={{cooks.img}}
             alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
           <div class="card-img-overlay d-flex flex-column">
             <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" herf="#">Authentic Tatse</a></h4>
+              <h4 class="card-title mt-3 "><a class="text-white" herf="#">{{cooks.Special}}</a></h4>
          
             </div>
             <div class="card-footer">
@@ -222,61 +179,14 @@
                   src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
                   alt="Generic placeholder image" style="max-width:50px">
                 <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Kalai </h6>
-                  <small>6 years</small>
+                  <h6 class="my-0 text-white d-block">{{cooks.name}} </h6>
+                  <small>{{cooks.Experience}} years</small>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" herf="#">Pure South Indian Dish</a></h4>
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Dhakshan</h6>
-                  <small>2 years</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" herf="#">Italina Stlye </a></h4>
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Vikrant</h6>
-                  <small>5 years</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
   </div>

@@ -9,24 +9,32 @@ import { LoginComponent } from './Auth/login/login.component';
 import { SignupComponent } from './Auth/signup/signup.component';
 import { BloginComponent } from './Auth/blogin/blogin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HallsComponent } from './halls/halls.component';
+import { HallSearchPipe } from './halls/hall-search.pipe';
+import { PhotographersComponent } from './photographers/photographers.component';
+import { CateringComponent } from './catering/catering.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    BloginComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+      declarations: [
+            AppComponent,
+            HomeComponent,
+            LoginComponent,
+            SignupComponent,
+            BloginComponent,
+            HallsComponent,
+            HallSearchPipe,
+            PhotographersComponent,
+            CateringComponent,
+      ],
+      imports: [
+            BrowserModule,
+            HttpClientModule,
+            AppRoutingModule,
+            FormsModule,
+            ReactiveFormsModule,
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
 })
 export class AppModule { }
