@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
       [ApiController]
-      [Route("api/[controller]")]
+      [Route("api/user")]
       public class AccountController : ControllerBase
       {
             public readonly Context _context;
@@ -18,8 +18,8 @@ namespace API.Controllers
                   _tokenService = TokenService;
             }
 
-            [HttpPost("register")]
-            public async Task<ActionResult<UserDTO>> Register([FromBody] SignupDTO signDTO)
+            [HttpPost("signup")]
+            public async Task<ActionResult<UserDTO>> Signup([FromBody] SignupDTO signDTO)
             {
                   // ? Check For the UserExists in DB
                   if (await _context.Users.AnyAsync(x => x.Username == signDTO.Username.ToLower())) return BadRequest("User Already Exists");

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { SignupComponent } from './Auth/signup/signup.component';
-import { BloginComponent } from './Auth/blogin/blogin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HallsComponent } from './halls/halls.component';
 import { HallSearchPipe } from './halls/hall-search.pipe';
@@ -21,7 +20,6 @@ import { CateringComponent } from './catering/catering.component';
             HomeComponent,
             LoginComponent,
             SignupComponent,
-            BloginComponent,
             HallsComponent,
             HallSearchPipe,
             PhotographersComponent,

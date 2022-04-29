@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
       [Route("[controller]")]
-      // [SerializableAttribute]
-
       public class ReviewsController : Controller
       {
             private readonly ILogger<ReviewsController> _logger;

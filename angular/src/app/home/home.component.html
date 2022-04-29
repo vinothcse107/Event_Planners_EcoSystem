@@ -1,277 +1,237 @@
 <section>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 navbar">
-        <a routerLink="/" class="logo navbar-brand text-white offset-md-2">WD</a>
-        <ul class="nav">
-          <li class="nav-item "><a  routerLink="/login" class="nav-link">Login</a></li>
-          <li class="nav-item"><a  routerLink="/signup" class="nav-link">Sign Up</a></li>
-          <li class="nav-item"><a  routerLink="#" class="nav-link">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- slider banner	 -->
-
-      <div id="bannerimg">
-        <div class="backfade">
-          <div class="items">
-            <div class="info">
-              <h1>Event Planners</h1>
-              <div class="searchbar d-flex justify-content-center">
-                <div class="input-group justify-content-center">
-                  <div class="form-outline">
-
-                    <input value="" placeholder="Search Ur Destination" class="search">
+      <div class="container-fluid">
+            <div class="row">
+                  <div class="col-md-12 navbar">
+                        <a routerLink="/" class="logo navbar-brand text-white offset-md-2">WD</a>
+                        <ul class="nav">
+                              <li class="nav-item "><a routerLink="/login" class="nav-link">Login</a></li>
+                              <li class="nav-item"><a routerLink="/signup" class="nav-link">Sign Up</a></li>
+                              <li class="nav-item"><a routerLink="#" class="nav-link">Contact Us</a></li>
+                        </ul>
                   </div>
-                  <button type="button" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
+                  <!-- slider banner	 -->
+
+                  <div id="bannerimg">
+                        <div class="backfade">
+                              <div class="items">
+                                    <div class="info">
+                                          <h1>Event Planners</h1>
+                                          <div class="searchbar d-flex justify-content-center">
+                                                <div class="input-group justify-content-center"
+                                                      style="width:fit-content;padding: 0px 15px 0px 15px;">
+                                                      <div class="form-outline">
+                                                            <input value="" placeholder="Search Ur Destination"
+                                                                  class="search form-control" style="border: none;">
+                                                      </div>
+                                                      <button type="button" class="btn btn-primary px-2 ml-3">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                  height="16" fill="currentColor" class="bi bi-search"
+                                                                  viewBox="0 0 16 16">
+                                                                  <path
+                                                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                                            </svg>
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+
+                  </div>
+            </div>
       </div>
-    </div>
-  </div>
 </section>
-<a routerLink="halls" class=" text-dark"><h1 style="margin:1em 3em ;">Halls</h1>
+<a routerLink="halls" class=" text-dark">
+      <h1 style="margin:1em 3em ;">Halls</h1>
 </a>
 <section class="wrapper">
-  <div class="container mx-auto mt-4">
+      <div class="container mx-auto mt-4">
+            <div class="row">
+                  <div class="col-md-4" *ngFor="let card of data">
+                        <a class="text-white" (click)="View(card.id)">
+                              <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+                                    style="background-image:url();">
+                                    <img class="card-img d-none" src={{card.img}}
+                                          alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                                    <div class="card-img-overlay d-flex flex-column">
+                                          <div class="card-body">
+                                                <h4 class="card-title mt-3 "> {{card.Description}}</h4>
 
-    <div class="row">
-      <div class="col-md-4" *ngFor="let card of data">
-        <a class="text-white" (click)="View(card.id)">
-        <div class="card text-white card-has-bg click-col mr-3"  style="width: 18rem;"
-          style="background-image:url();">
-          <img class="card-img d-none" src={{card.img}}
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "> {{card.Description}}</h4>
-             
+                                          </div>
+                                          <div class="card-footer">
+                                                <div class="media">
+                                                      <img class="mr-3 rounded-circle"
+                                                            src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                                                            alt="Generic placeholder image" style="max-width:50px">
+                                                      <div class="media-body">
+                                                            <h6 class="my-0 text-white d-block">{{card.HallName}}</h6>
+                                                            <small>{{card.Location}}</small>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </a>
+                  </div>
+
             </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">{{card.HallName}}</h6>
-                  <small>{{card.Location}}</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
+
       </div>
-     
-    </div>
-
-  </div>
 </section>
 <h1 style="margin:1em 3em ;">Photographers</h1>
 <section class="wrapper">
-  <div class="container mx-auto mt-4">
+      <div class="container mx-auto mt-4">
 
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" herf="#">Specialist in Candid</a></h4>
-              
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Rama Subbu</h6>
-                  <small>15 years</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 ml-1"><a class="text-white" herf="#">Know for my Editing </a></h4>
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Kanaga Raja</h6>
-                  <small>5 years</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" herf="#">Wedding Photogrphy</a></h4>
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">Vijay </h6>
-                  <small>3 years</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="row">
+                  <div class="col-md-4" *ngFor="let a of photo">
+                        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+                              style="background-image:url({{a.img}});">
+                              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
+                                    alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                              <div class="card-img-overlay d-flex flex-column">
+                                    <div class="card-body">
+                                          <h4 class="card-title mt-3 "><a class="text-white" herf="#">{{a.title}}</a>
+                                          </h4>
+                                    </div>
+                                    <div class="card-footer">
+                                          <div class="media">
+                                                <img class="mr-3 rounded-circle"
+                                                      src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                                                      alt="Generic placeholder image" style="max-width:50px">
+                                                <div class="media-body">
+                                                      <h6 class="my-0 text-white d-block">{{a.Name}}</h6>
+                                                      <small>{{a.Experience}}years</small>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
 
-    </div>
+            </div>
 
-  </div>
+      </div>
 </section>
 
 <a routerLink="catering" class="text-dark">
-<h1 style="margin:1em 3em ;">Catreing</h1></a>
+      <h1 style="margin:1em 3em ;">Catreing</h1>
+</a>
 <section class="wrapper">
-  <div class="container mx-auto mt-4">
+      <div class="container mx-auto mt-4">
 
-    <div class="row">
-      <div class="col-md-4" *ngFor="let cooks of cook">
-        
-        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-          style="background-image:url({{cooks.img}});">
-          <img class="card-img d-none" src={{cooks.img}}
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <h4 class="card-title mt-3 "><a class="text-white" herf="#">{{cooks.Special}}</a></h4>
-         
+            <div class="row">
+                  <div class="col-md-4" *ngFor="let cooks of cook">
+
+                        <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
+                              style="background-image:url({{cooks.img}});">
+                              <img class="card-img d-none" src={{cooks.img}}
+                                    alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                              <div class="card-img-overlay d-flex flex-column">
+                                    <div class="card-body">
+                                          <h4 class="card-title mt-3 "><a class="text-white"
+                                                      herf="#">{{cooks.Special}}</a></h4>
+
+                                    </div>
+                                    <div class="card-footer">
+                                          <div class="media">
+                                                <img class="mr-3 rounded-circle"
+                                                      src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
+                                                      alt="Generic placeholder image" style="max-width:50px">
+                                                <div class="media-body">
+                                                      <h6 class="my-0 text-white d-block">{{cooks.name}} </h6>
+                                                      <small>{{cooks.Experience}} years</small>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
             </div>
-            <div class="card-footer">
-              <div class="media">
-                <img class="mr-3 rounded-circle"
-                  src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
-                  alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-white d-block">{{cooks.name}} </h6>
-                  <small>{{cooks.Experience}} years</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
-    </div>
-
-  </div>
 </section>
 <section>
-  <div class="footer">
-    <footer class="bg-dark text-center text-lg-start">
-      <!-- Grid container -->
-      <div class="container p-4" style="color: white;">
-        <!--Grid row-->
-        <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-   
-    
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Halls</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Photogrphy</a>
-              </li>
-              
-            </ul>
-          </div>
-          <!--Grid column-->
-    
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          
-    
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!" class="text-white">Catering</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Vlogs</a>
-              </li>
-            
-            </ul>
-          </div>
-          <!--Grid column-->
-    
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          
-    
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Blogs</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Careerr</a>
-              </li>
-              
-            </ul>
-          </div>
-          <!--Grid column-->
-    
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-  
-    
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!" class="text-white">Contact US</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Address</a>
-              </li>
-             
-            </ul>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
+      <div class="footer">
+            <footer class="bg-dark text-center text-lg-start">
+                  <!-- Grid container -->
+                  <div class="container p-4" style="color: white;">
+                        <!--Grid row-->
+                        <div class="row">
+                              <!--Grid column-->
+                              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+
+                                    <ul class="list-unstyled mb-0">
+                                          <li>
+                                                <a href="#!" class="text-white">Halls</a>
+                                          </li>
+                                          <li>
+                                                <a href="#!" class="text-white">Photogrphy</a>
+                                          </li>
+
+                                    </ul>
+                              </div>
+                              <!--Grid column-->
+
+                              <!--Grid column-->
+                              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+
+                                    <ul class="list-unstyled">
+                                          <li>
+                                                <a href="#!" class="text-white">Catering</a>
+                                          </li>
+                                          <li>
+                                                <a href="#!" class="text-white">Vlogs</a>
+                                          </li>
+
+                                    </ul>
+                              </div>
+                              <!--Grid column-->
+
+                              <!--Grid column-->
+                              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+
+                                    <ul class="list-unstyled mb-0">
+                                          <li>
+                                                <a href="#!" class="text-white">Blogs</a>
+                                          </li>
+                                          <li>
+                                                <a href="#!" class="text-white">Careerr</a>
+                                          </li>
+
+                                    </ul>
+                              </div>
+                              <!--Grid column-->
+
+                              <!--Grid column-->
+                              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+
+                                    <ul class="list-unstyled">
+                                          <li>
+                                                <a href="#!" class="text-white">Contact US</a>
+                                          </li>
+                                          <li>
+                                                <a href="#!" class="text-white">Address</a>
+                                          </li>
+
+                                    </ul>
+                              </div>
+                              <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                  </div>
+                  <!-- Grid container -->
+
+                  <!-- Copyright -->
+                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                        © 2022 Copyright:
+                        <a class="text-white" href="https://mdbootstrap.com/">Wedding Planners.com</a>
+                  </div>
+                  <!-- Copyright -->
+            </footer>
       </div>
-      <!-- Grid container -->
-    
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">Wedding Planners.com</a>
-      </div>
-      <!-- Copyright -->
-    </footer>
-  </div>
 </section>
