@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Model
+namespace API.Model;
+
+public class Hall
 {
-      public class Hall
-      {
-            [Key]
-            public int HallID { get; set; }
-            public string Hall_Name { get; set; }
-            public string Location { get; set; }
-            public string Description { get; set; }
-            public virtual ICollection<Event> HallEvents { get; set; }
-            public virtual ICollection<Review> EventReviews { get; set; }
+      [Key]
+      public Guid HallID { get; set; }
 
-      }
 
-      public class HallDTO
-      {
-            public int HallID { get; set; }
-            public string Hall_Name { get; set; }
-            public string Location { get; set; }
-            public string Description { get; set; }
-      }
+      [ForeignKey("User")]
+      public string Username { get; set; }
+      [JsonIgnore]
+      public User User { get; set; }
 
+      public byte[] DisplayImg { get; set; }
+      public string Hall_Name { get; set; }
+      public string Location { get; set; }
+      public string Description { get; set; }
+      public virtual ICollection<Event> HallEvents { get; set; }
+      public virtual ICollection<Review> EventReviews { get; set; }
 }

@@ -19,7 +19,7 @@ namespace API.Controllers
             }
 
             [HttpPost("Add_Events")]
-            public async Task<IActionResult> PostEvents([FromBody] EventDTO model)
+            public async Task<IActionResult> PostEvents([FromBody] Event model)
             {
                   if (model == null)
                   {

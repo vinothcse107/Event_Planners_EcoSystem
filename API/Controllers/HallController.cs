@@ -18,7 +18,7 @@ namespace API.Controllers
                   _context = context;
             }
             [HttpPost("Add_Halls")]
-            public async Task<IActionResult> Post([FromBody] HallDTO model)
+            public async Task<IActionResult> Post([FromBody] Hall model)
             {
                   if (model == null)
                   {

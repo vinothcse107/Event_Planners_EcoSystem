@@ -6,21 +6,21 @@ namespace API.Model
       public class Review
       {
             [Key]
-            public int ID { get; set; }
-            public string ReviewContent { get; set; }
+            public Guid ID { get; set; }
 
+            public string HallReviewContent { get; set; }
+            public int HallRating { get; set; }
+
+            public string PhotographerReviewContent { get; set; }
+            public int PhotoRating { get; set; }
+
+            public string CateringReviewContent { get; set; }
+            public int CateringRating { get; set; }
 
 
             [ForeignKey("EventReviews")]
-            public int EventID { get; set; }
+            public Guid EventID { get; set; }
             [JsonIgnore]
             public Event EventReviews { get; set; }
-
-
-
-            [ForeignKey("HallReviews")]
-            public int HallID { get; set; }
-            [JsonIgnore]
-            public Hall HallReviews { get; set; }
       }
 }

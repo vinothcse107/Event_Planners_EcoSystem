@@ -41,36 +41,36 @@ namespace API.Controllers
                   }
             }
 
-            [HttpGet("User_Reviews/{userId}")]
+            // [HttpGet("User_Reviews/{userId}")]
 
-            public async Task<IActionResult> Get(string userId)
-            {
-                  var q = await (
-                        from r in _context.Reviews
-                        join e in _context.Events on r.EventID equals e.ID
-                        join h in _context.Halls on e.Hall_ID equals h.HallID
-                        where e.User_ID == userId
-                        select new
-                        {
-                              user = e.User_ID,
-                              Event = e.EventName,
-                              Hall = h.Hall_Name,
-                              Review = r.ReviewContent
+            // public async Task<IActionResult> Get(string userId)
+            // {
+            //       var q = await (
+            //             from r in _context.Reviews
+            //             join e in _context.Events on r.EventID equals e.ID
+            //             join h in _context.Halls on e.Hall_ID equals h.HallID
+            //             where e.User_ID == userId
+            //             select new
+            //             {
+            //                   user = e.User_ID,
+            //                   Event = e.EventName,
+            //                   Hall = h.Hall_Name,
+            //                   // Review = r.ReviewContent
 
-                        }).ToListAsync();
+            //             }).ToListAsync();
 
-                  return Ok(q);
-            }
+            //       return Ok(q);
+            // }
 
 
-            [HttpGet("Hall_Reviews/{HallId}")]
-            public async Task<IActionResult> Get(int HallId)
-            {
+            // [HttpGet("Hall_Reviews/{HallId}")]
+            // public async Task<IActionResult> Get(Guid HallId)
+            // {
 
-                  var x = await _context.Reviews.Where(a => a.HallID == HallId).ToListAsync();
-                  _context.SaveChanges();
-                  return Ok(x);
-            }
+            //       var x = await _context.Reviews.Where(a => a.HallID == HallId).ToListAsync();
+            //       _context.SaveChanges();
+            //       return Ok(x);
+            // }
 
 
       }

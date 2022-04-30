@@ -45,6 +45,48 @@ namespace API.Data
                   Console.WriteLine("Halls Seeding Done");
             }
 
+            public static void SeedPhotoGraphers(Context context)
+            {
+                  if (context.Photographers.Any()) return;
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/PhotoGrapherSeed.json");
+                  var x = JsonSerializer.Deserialize<List<Photographer>>(Data);
+
+                  foreach (var h in x)
+                  {
+                        context.Photographers.Add(h);
+                  }
+                  context.SaveChanges();
+                  Console.WriteLine("Photographer Seeding Done");
+            }
+
+            public static void SeedCatering(Context context)
+            {
+                  if (context.Caterings.Any()) return;
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/CateringSeed.json");
+                  var x = JsonSerializer.Deserialize<List<Catering>>(Data);
+
+                  foreach (var h in x)
+                  {
+                        context.Caterings.Add(h);
+                  }
+                  context.SaveChanges();
+                  Console.WriteLine("Catering Peoples added Seeding Done");
+            }
+
+            public static void SeedCateringItems(Context context)
+            {
+                  if (context.CateringFoodItems.Any()) return;
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/CateringFoodItemSeed.json");
+                  var x = JsonSerializer.Deserialize<List<CateringFoodItem>>(Data);
+
+                  foreach (var h in x)
+                  {
+                        context.CateringFoodItems.Add(h);
+                  }
+                  context.SaveChanges();
+                  Console.WriteLine("Catering Items added Seeding Done");
+            }
+
             public static void SeedEvents(Context context)
             {
                   if (context.Events.Any()) return;
@@ -74,3 +116,16 @@ namespace API.Data
 
       }
 }
+
+
+
+// [
+//       {
+//             "EventName": "eiusmod labore qui",
+//             "EventTime": "2024-01-03T08:50:09",
+//             "User_ID": "vinosiva",
+//             "Hall_ID": "1B71E1CF-55FF-4B6D-D06B-08DA2AB4423E",
+//             "PhotoGrapherID": "Combs",
+//             "CateringId": "Flynn"
+//       }
+// ]

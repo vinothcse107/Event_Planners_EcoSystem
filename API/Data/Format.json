@@ -25,7 +25,9 @@
                   "EventName": "{{lorem(3 , \"words\")}}",
                   "EventTime": "{{date(new Date(2022, 0, 1), new Date(2023,12,31), \"YYYY-MM-ddThh:mm:ss\")}}",
                   "User_ID": "{{random(\"vinosiva\" ,  \"Hyde\" , \"Mays\")}}",
-                  "Hall_ID": "{{integer(1,5)}}"
+                  "Hall_ID": "{{random(\"1B71E1CF-55FF-4B6D-D06B-08DA2AB4423E\",\"83090584-BAD7-41D2-D06C-08DA2AB4423E\",\"DA0BD2D1-AB71-483D-D06D-08DA2AB4423E\")}}",
+                  "PhotoGrapherID": "{{random(\"Combs\",\"Horne\" ,\"Cervantes\")}}",
+                  "CateringId": "{{random(\"Flynn\",\"Joyce\",\"Scott\")}}"
             }
       ],
       "Reviews": [

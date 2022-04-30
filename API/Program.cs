@@ -40,8 +40,11 @@ try
       context.Database.Migrate();
       Seed.SeedUsers(context);
       Seed.SeedHalls(context);
+      Seed.SeedCatering(context);
+      Seed.SeedCateringItems(context);
+      Seed.SeedPhotoGraphers(context);
       Seed.SeedEvents(context);
-      Seed.SeedReviews(context);
+      // Seed.SeedReviews(context);
 
 }
 catch (Exception ex)
@@ -51,3 +54,5 @@ catch (Exception ex)
 }
 
 app.Run();
+
+

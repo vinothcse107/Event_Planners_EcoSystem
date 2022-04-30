@@ -6,32 +6,39 @@ namespace API.Model
       public class Event
       {
             [Key]
-            public int ID { get; set; }
+            public Guid ID { get; set; }
             public string EventName { get; set; }
             public DateTime EventTime { get; set; }
 
-
+            // Client UserId
+            // => FK UserName => User.cs
             [ForeignKey("Users")]
             public string User_ID { get; set; }
             [JsonIgnore]
             public User Users { get; set; }
 
 
+            // => FK HallId => Hall.cs
             [ForeignKey("Halls")]
-            public int Hall_ID { get; set; }
+            public Guid Hall_ID { get; set; }
             [JsonIgnore]
             public Hall Halls { get; set; }
 
+
+
+            // => FK UserName => Photographer.cs
+            [ForeignKey("Photographer")]
+            public string PhotoGrapherID { get; set; }
+            [JsonIgnore]
+            public Photographer Photographer { get; set; }
+
+
+            [ForeignKey("Catering")]
+            public string CateringId { get; set; }
+            [JsonIgnore]
+            public Catering Catering { get; set; }
+
             public virtual ICollection<Review> EventReviews { get; set; }
 
-      }
-      public class EventDTO
-      {
-            [Key]
-            public int ID { get; set; }
-            public string EventName { get; set; }
-            public DateTime EventTime { get; set; }
-            public string User_ID { get; set; }
-            public int Hall_ID { get; set; }
       }
 }
