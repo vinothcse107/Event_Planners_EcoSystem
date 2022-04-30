@@ -12,7 +12,7 @@ public class Hall
 
 
       [ForeignKey("User")]
-      public string Username { get; set; }
+      public string OwnerUsername { get; set; }
       [JsonIgnore]
       public User User { get; set; }
 

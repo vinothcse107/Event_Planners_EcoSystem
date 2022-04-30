@@ -44,7 +44,7 @@ try
       Seed.SeedCateringItems(context);
       Seed.SeedPhotoGraphers(context);
       Seed.SeedEvents(context);
-      // Seed.SeedReviews(context);
+      Seed.SeedReviews(context);
 
 }
 catch (Exception ex)

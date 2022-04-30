@@ -31,11 +31,16 @@
             }
       ],
       "Reviews": [
-            "{{repeat(5, 7)}}",
+            "{{repeat(25, 30)}}",
             {
-                  "reviewContent": "{{lorem(5 , \"words\")}}",
-                  "eventID": "{{random(3,5,2)}}",
-                  "hallID": "{{random(3,5,2)}}"
+                  "ID": "{{guid()}}",
+                  "HallReviewContent": "{{lorem(10,\"words\")}}",
+                  "HallRating": "{{integer(1,5)}}",
+                  "PhotographerReviewContent": "{{lorem(10 , \"words\")}}",
+                  "PhotoRating": "{{integer(1,5)}}",
+                  "CateringReviewContent": "{{lorem(10 , \"words\")}}",
+                  "CateringRating": "{{integer(1,5)}}",
+                  "EventID": "{{random(\"2775B326-9D5A-4BF7-AF98-08DA2ACD21ED\",\"916A8A31-4A9F-461B-AF9A-08DA2ACD21ED\",\"D353EFC6-4B41-4D4D-AF99-08DA2ACD21ED\")}}"
             }
       ]
 }

@@ -10,8 +10,4 @@ public class Photographer
       [JsonIgnore]
       public virtual User User { get; set; }
       public virtual ICollection<Event> PhotoGrapherEvents { get; set; }
-
-
-
-
 }
