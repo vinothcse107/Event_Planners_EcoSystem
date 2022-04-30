@@ -1,8 +1,8 @@
-<section class="vh-100" style="background-color: cornflowerblue;">
+<div style="background-color: cornflowerblue;">
       <div class="container py-5 h-100" style="background-color: #e1f2ff;width : 700px">
             <div class="row d-flex justify-content-center align-items-center h-100">
                   <div class="col col-xs-6 col-sm-6 col-md-6 col-xl-8">
-                        <form>
+                        <form [formGroup]="bsignUp">
                               <div class="text-center mb-0 h1"
                                     style="color: rgb(47, 47, 47); font-weight:700; font-size: 3.5em;">
                                     <p>Business Register</p>
@@ -30,12 +30,24 @@
                               <!-- Profession -->
 
                               <div class="mb-4 form-group form-row ">
-                                    <select class="dropdown form-control">
+                                    <select class="dropdown form-control" formControlName="role">
                                           <option class="dropdown-item">Choose Profession</option>
                                           <option class="dropdown-item" value="hall_owner">Hall Owner</option>
                                           <option class="dropdown-item" value="catering">Catering</option>
                                           <option class="dropdown-item" value="photographer">PhotoGrapher</option>
                                     </select>
+                              </div>
+
+                              <!-- Phone -->
+                              <div class="form-outline mb-4 form-group form-row">
+                                    <input type="text" id="phone" class="form-control" formControlName="phone"
+                                          placeholder="Phone" />
+                              </div>
+
+                              <!-- Location -->
+                              <div class="form-outline mb-4 form-group form-row">
+                                    <input type="text" id="location" class="form-control" formControlName="location"
+                                          placeholder="Location" />
                               </div>
 
                               <!-- Password input -->
@@ -47,14 +59,15 @@
                               <!-- Repeat Password input -->
                               <div class="form-outline mb-4 form-group form-row">
                                     <input type="password" id="registerRepeatPassword" class="form-control"
-                                          formControlName="confirm" placeholder="Repeat password" />
+                                          formControlName="confirmpass" placeholder="Repeat password" />
                               </div>
 
                               <!-- Submit button -->
-                              <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                              <button type="submit" class="btn btn-primary btn-block mb-3" (click)="BSignup()">Sign
+                                    in</button>
                         </form>
 
                   </div>
             </div>
       </div>
-</section>
+</div>

@@ -20,10 +20,8 @@ export class SignupComponent implements OnInit {
                   "username": new FormControl(null, [Validators.required,]),
                   "email": new FormControl(null, [Validators.required, Validators.email]),
                   "password": new FormControl(null, Validators.required),
-
                   "phone": new FormControl(null, [Validators.required]),
                   "location": new FormControl(null, [Validators.required,]),
-
                   "role": new FormControl(null, [Validators.required,]),
                   "confirmpass": new FormControl(null, [Validators.minLength(8), Validators.maxLength(16)])
             })
@@ -36,7 +34,7 @@ export class SignupComponent implements OnInit {
                   password: this.SignUp.get('mobile')?.value,
                   phone: this.SignUp.get("phone")?.value,
                   location: this.SignUp.get("location")?.value,
-                  role: "user"
+                  role: "member"
             }
             this._loginService.SignupCheck(body).subscribe(
                   {

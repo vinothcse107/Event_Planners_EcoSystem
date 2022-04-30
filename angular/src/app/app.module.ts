@@ -12,6 +12,7 @@ import { HallsComponent } from './halls/halls.component';
 import { HallSearchPipe } from './halls/hall-search.pipe';
 import { PhotographersComponent } from './photographers/photographers.component';
 import { CateringComponent } from './catering/catering.component';
+import { BsignupComponent } from './Auth/bsignup/bsignup.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CateringComponent } from './catering/catering.component';
             HallSearchPipe,
             PhotographersComponent,
             CateringComponent,
+            BsignupComponent
       ],
       imports: [
             BrowserModule,
