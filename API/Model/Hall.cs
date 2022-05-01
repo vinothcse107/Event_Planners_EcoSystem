@@ -7,6 +7,8 @@ namespace API.Model;
 
 public class Hall
 {
+
+
       [Key]
       public Guid HallID { get; set; }
 

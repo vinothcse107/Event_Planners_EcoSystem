@@ -6,7 +6,7 @@ namespace API.Model
       public class Event
       {
             [Key]
-            public Guid ID { get; set; }
+            public Guid EventID { get; set; }
             public string EventName { get; set; }
             public DateTime EventTime { get; set; }
 
@@ -38,7 +38,8 @@ namespace API.Model
             [JsonIgnore]
             public Catering Catering { get; set; }
 
-            public virtual ICollection<Review> EventReviews { get; set; }
+            [JsonIgnore]
+            public virtual Review EventReviews { get; set; }
 
       }
 }

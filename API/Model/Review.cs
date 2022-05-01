@@ -5,8 +5,8 @@ namespace API.Model
 {
       public class Review
       {
-            [Key]
-            public Guid ID { get; set; }
+            [Key, ForeignKey("EventReviews")]
+            public Guid ReviewID { get; set; }
 
             public string HallReviewContent { get; set; }
             public int HallRating { get; set; }
@@ -17,10 +17,7 @@ namespace API.Model
             public string CateringReviewContent { get; set; }
             public int CateringRating { get; set; }
 
-
-            [ForeignKey("EventReviews")]
-            public Guid EventID { get; set; }
             [JsonIgnore]
-            public Event EventReviews { get; set; }
+            public virtual Event EventReviews { get; set; }
       }
 }
