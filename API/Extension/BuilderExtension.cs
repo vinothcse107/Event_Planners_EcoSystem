@@ -2,6 +2,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
+using Newtonsoft.Json;
 namespace API.Extension
 {
       public static class BuilderExtension
@@ -33,6 +34,11 @@ namespace API.Extension
 
                   // User JWT Token Generation Service
                   services.AddScoped<ITokenService, TokenService>();
+                  services.AddControllersWithViews()
+                        .AddNewtonsoftJson(options =>
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                  );
+
                   return services;
             }
       }
