@@ -42,7 +42,8 @@ export class HallsComponent implements OnInit {
   }
   View(hall: number)
   {
-    this.routes.navigate(['halls/hallv'])
+    console.log(hall)
+    // this.routes.navigate(['halls/hallv'])
 
 
   }

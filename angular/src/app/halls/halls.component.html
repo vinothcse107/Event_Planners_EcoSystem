@@ -62,7 +62,7 @@
             <div class="container mx-auto mt-4">
           
               <div class="row">
-                <div class="col-md-4" *ngFor="let card of data | hallSearch:searchString:'Location'">
+                <div class="col-md-4" *ngFor="let card of data | hallSearch:searchString:'Location' ; let i = index">
                   <div class="card text-white card-has-bg click-col mr-3"  style="width: 18rem;"
                     style="background-image:url();">
                     <img class="card-img d-none" src={{card.img}}

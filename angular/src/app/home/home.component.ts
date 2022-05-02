@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
+import { HomeserviceService } from '../services/homeservice.service';
 
 @Component({
       selector: 'app-home',
@@ -11,7 +13,9 @@ export class HomeComponent implements OnInit {
       cook!: CookShow[];
       photo!: PhotoGrapher[]
 
-      constructor(private routes: Router) { }
+      constructor(private routes: Router , private home : HomeserviceService) { 
+      
+      }
 
       ngOnInit(): void {
             let data: HallsShow[];
@@ -40,21 +44,21 @@ export class HomeComponent implements OnInit {
             ]
             this.data = [
                   {
-                        "id": 1,
+                        "id":"83090584-BAD7-41D2-D06C-08DA2AB4423E",
                         "HallName": "CJ Pallazio",
                         "Location": "salem",
                         "Description": "magna nisi esse ipsum irure ullamco qui qui dolore anim",
                         "img": "https://source.unsplash.com/600x900/?tech,street"
                   },
                   {
-                        "id": 2,
+                        "id": "1B71E1CF-55FF-4B6D-D06B-08DA2AB4423E",
                         "HallName": "CJ Pallazio",
                         "Location": "chennai",
                         "Description": "aute tempor enim ad excepteur sit pariatur exercitation ea labore",
                         "img": "https://source.unsplash.com/600x900/?tree,nature"
                   },
                   {
-                        "id": 3,
+                        "id":"DA0BD2D1-AB71-483D-D06D-08DA2AB4423E",
                         "HallName": "JJ Pallazio",
                         "Location": "chennai",
                         "Description": "duis labore et irure quis aliqua aliquip aute non aliquip",
@@ -90,10 +94,16 @@ export class HomeComponent implements OnInit {
 
 
       }
-      View(hall: number) {
-            this.routes.navigate(['halls/hallv'])
-
-
+      View(hallId: string) {
+            this.home.GetHallData(hallId).subscribe({
+                  next : (data) => {
+                        // this.routes.navigate(['halls/'])
+                        console.log(data);
+                  },
+                  error : (e) =>{
+                        console.error(e);
+                  }
+            })
       }
 }
 export interface CookShow {
@@ -104,7 +114,7 @@ export interface CookShow {
 
 }
 export interface HallsShow {
-      id: number,
+      id: string,
       HallName: string;
       Description: string;
       Location: string;

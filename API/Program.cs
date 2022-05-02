@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 using API.ModelValidation;
 using Microsoft.AspNetCore.Identity;
-using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
