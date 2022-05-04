@@ -11,7 +11,7 @@ namespace API.ModelValidation
                   RuleFor(x => x.Location).NotNull().NotEmpty();
                   RuleFor(x => x.Role).Must(x =>
                   {
-                        string[] roles = { "member", "admin", "hall_owner" };
+                        string[] roles = { "member", "admin", "hall_owner", "photographer", "catering" };
                         foreach (string r in roles)
                         {
                               if (x.ToLower().Equals(r)) return true;

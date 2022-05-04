@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
       [Route("[controller]")]
-
       public class HallController : ControllerBase
       {
             private readonly Context _context;
@@ -28,6 +27,7 @@ namespace API.Controllers
             {
                   try
                   {
+
                         var x = await _context.Halls
                         .Select(s => new
                         {
@@ -36,10 +36,11 @@ namespace API.Controllers
                               Description = s.Description,
                               HallLocation = s.Location,
                               DisplayImg = s.DisplayImg,
-                              Rating = Math.Round((from r in _context.Reviews
-                                                   join e in _context.Events on r.ReviewID equals e.EventID
-                                                   where s.HallID == e.Hall_ID
-                                                   select r.HallRating).Average(), 1)
+                              Rating = _context.Events.Where(w => w.Hall_ID == s.HallID).Any()
+                                          ? Math.Round((from r in _context.Reviews
+                                                        join e in _context.Events on r.ReviewID equals e.EventID
+                                                        where s.HallID == e.Hall_ID
+                                                        select r.HallRating).Average(), 1) : 0.0
                         })
                         .ToListAsync();
                         return Ok(x);
@@ -68,8 +69,6 @@ namespace API.Controllers
                                     .Where(o => o.EventTime > DateTime.Now)
                                     .Select(r => r.EventTime)
                                     .ToArrayAsync());
-
-
 
                         // Hall Reviews
                         var Reviews = await (
@@ -130,7 +129,7 @@ namespace API.Controllers
                                           ? Math.Round((from r in _context.Reviews
                                                         join e in _context.Events on r.ReviewID equals e.EventID
                                                         where d.HallID == e.Hall_ID
-                                                        select r.HallRating).Average(), 1) : 0.0d
+                                                        select r.HallRating).Average(), 1) : 0.0
                         })
                         .ToListAsync();
                         return Ok(x);
@@ -146,7 +145,7 @@ namespace API.Controllers
 
             #region Business Controls
             [HttpPost("Add_Halls")]
-            public async Task<IActionResult> Post([FromBody] HallDTO model)
+            public async Task<IActionResult> PostAHall([FromBody] HallDTO model)
             {
                   var x = await _context.Halls.AddAsync(
                         new Hall
@@ -161,6 +160,104 @@ namespace API.Controllers
                   await _context.SaveChangesAsync();
                   return Ok("Halls Added");
             }
+
+            [HttpPut("EditHall")]
+            public async Task<IActionResult> EditAHall([FromBody] HallDTO model)
+            {
+                  if (model == null)
+                  {
+                        return BadRequest("Invalid Data");
+                  }
+                  else
+                  {
+                        var hall = await _context.Halls.AsNoTracking()
+                                    .FirstOrDefaultAsync(e => e.HallID == model.HallID);
+                        if (hall == null)
+                        {
+                              return NotFound(new
+                              {
+                                    StatusCode = 404,
+                                    Message = "Hall not found",
+                              });
+                        }
+                        else
+                        {
+                              if (ModelState.IsValid)
+                              {
+                                    var h = new Hall
+                                    {
+                                          HallID = model.HallID,
+                                          OwnerUsername = model.OwnerUsername,
+                                          DisplayImg = null,
+                                          Hall_Name = model.Hall_Name,
+                                          Location = model.Location,
+                                          Description = model.Description
+
+                                    };
+                                    _context.Entry(h).State = EntityState.Modified;
+                                    _context.SaveChanges();
+                                    return new OkObjectResult(new
+                                    {
+                                          StatusCode = 200,
+                                          Message = "Hall Updated Successfully"
+                                    });
+                              }
+                              return BadRequest();
+                        }
+                  }
+
+            }
+
+            [HttpDelete("DeleteHall/{HallID}")]
+            public async Task<IActionResult> Delete(Guid HallID)
+            {
+                  var hall = await _context.Halls.FindAsync(HallID);
+                  if (hall == null)
+                  {
+                        return NotFound(new
+                        {
+                              StatusCode = 404,
+                              Message = "Hall Not Found",
+                        });
+                  }
+                  else
+                  {
+                        _context.Halls.Remove(hall);
+                        _context.SaveChanges();
+                        return Ok(new
+                        {
+                              StatusCode = 200,
+                              Message = "Hall Deleted"
+                        });
+                  }
+            }
+
+            #endregion
+
+            #region SampleTest
+            [HttpGet("GetHome_Data/{Local}")]
+            public async Task<IActionResult> GetHomeData(string Local)
+            {
+                  try
+                  {
+                        // var user = _context.Users.Where(w => w.Username == username).Select(s => s.Location);
+
+                        var h = await (_context.Halls.Where(w => w.Location == Local).Take(3)).ToListAsync();
+                        // var h = await (_context..Where(d => d.PhotoGrapherID == ));
+
+
+                        var x = new { Halls = h };
+                        return Ok(x);
+
+                  }
+                  catch (Exception e)
+                  {
+                        return BadRequest($"Somthing Went Wrong:  \n {e.StackTrace}");
+                  }
+
+
+            }
+
             #endregion
 
       }
