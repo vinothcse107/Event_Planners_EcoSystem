@@ -4,7 +4,7 @@
             "Username": "vinosiva",
             "Email": "vinosiva.2001@gmail.com",
             "Phone": "6383705751",
-            "Location": "salem",
+            "Location": "chennai",
             "Role": "member",
             "Password_id": "Password"
       },
@@ -22,7 +22,7 @@
             "Username": "Reed",
             "Email": "jordanreed@realmo.com",
             "Phone": "(820) 411-3660",
-            "Location": "salem",
+            "Location": "chennai",
             "Role": "member",
             "Password_id": "Rocha"
       },
@@ -40,7 +40,7 @@
             "Username": "Horne",
             "Email": "rebekahhorne@realmo.com",
             "Phone": "(893) 427-2229",
-            "Location": "salem",
+            "Location": "chennai",
             "Role": "photographer",
             "Password_id": "Holloway"
       },
@@ -58,7 +58,7 @@
             "Username": "Scott",
             "Email": "eddiescott@realmo.com",
             "Phone": "(807) 551-3682",
-            "Location": "banglore",
+            "Location": "chennai",
             "Role": "catering",
             "Password_id": "Pratt"
       },
@@ -67,7 +67,7 @@
             "Username": "Joyce",
             "Email": "liliajoyce@realmo.com",
             "Phone": "(893) 495-3338",
-            "Location": "banglore",
+            "Location": "chennai",
             "Role": "catering",
             "Password_id": "Howe"
       },
@@ -85,7 +85,7 @@
             "Username": "Flynn",
             "Email": "eliseflynn@realmo.com",
             "Phone": "(995) 545-2047",
-            "Location": "salem",
+            "Location": "kochi",
             "Role": "catering",
             "Password_id": "Burgess"
       },
@@ -112,7 +112,7 @@
             "Username": "Bridges",
             "Email": "frybridges@realmo.com",
             "Phone": "(995) 419-3434",
-            "Location": "salem",
+            "Location": "kochi",
             "Role": "hall_owner",
             "Password_id": "Villarreal"
       },
@@ -130,7 +130,7 @@
             "Username": "Pennington",
             "Email": "kimberleypennington@realmo.com",
             "Phone": "(964) 586-2568",
-            "Location": "salem",
+            "Location": "kochi",
             "Role": "member",
             "Password_id": "Miller"
       },
@@ -139,7 +139,7 @@
             "Username": "Cervantes",
             "Email": "bauercervantes@realmo.com",
             "Phone": "(986) 494-2890",
-            "Location": "salem",
+            "Location": "banglore",
             "Role": "photographer",
             "Password_id": "Dorsey"
       }
