@@ -45,6 +45,7 @@ try
       Seed.SeedEvents(context);
       Seed.SeedReviews(context);
       Seed.SeedManyToMany(context);
+      Seed.SeedEventsFood(context);
 
 }
 catch (Exception ex)

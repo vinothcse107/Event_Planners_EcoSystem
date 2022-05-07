@@ -8,5 +8,6 @@ public class CateringFoodItem
       public string Item { get; set; }
       public byte[] ItemImg { get; set; }
       public virtual ICollection<Catering_FoodItems> CateringItems { get; set; }
+      public virtual ICollection<EventFoodItems> EventFoodItems { get; set; }
 
 }

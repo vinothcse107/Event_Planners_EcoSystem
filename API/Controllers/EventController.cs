@@ -26,19 +26,28 @@ public class EventController : Controller
                         User_ID = m.User_ID,
                         Hall_ID = m.Hall_ID,
                         PhotoGrapherID = m.PhotoGrapherID,
-                        CateringId = m.CateringId
+                        CateringId = m.CateringId,
                   };
                   try
                   {
                         var x = await _context.Events.AddAsync(eve);
                         await _context.SaveChangesAsync();
-                        return Ok("Event Added");
+
+                        return Ok(new
+                        {
+                              EventId = eve.EventID,
+                              Msg = "Event Added"
+                        });
                   }
                   catch { return BadRequest("Event Not Added , Something Went Wrong !!!"); }
             }
             else { return BadRequest("Invalid Data Passed"); }
       }
       [HttpGet("Get_Events/{userId}")]
+
+      // TestCase (EventId): 
+      // a9a04b80-2341-4acb-91c5-2a7cc2f8faa8,
+      // e8e47fa2-687b-4071-8ba9-92838ea8996e
       public async Task<IActionResult> GetEventsByUser(string userId)
       {
             try
@@ -49,6 +58,7 @@ public class EventController : Controller
                                  select new { u, e }
                               ).Select(s => new
                               {
+                                    EventId = s.e.EventID,
                                     User = s.u.Username,
                                     EventName = s.e.EventName,
                                     EventTime = s.e.EventTime,
@@ -56,8 +66,13 @@ public class EventController : Controller
                                     Location = s.e.Halls.Location,
                                     Description = s.e.Halls.Description,
                                     PhotoGrapher = s.e.PhotoGrapherID,
-                                    Catering = s.e.CateringId
-
+                                    Catering = s.e.CateringId,
+                                    Food_Items = s.e.EventFoodItems.Select(l => new
+                                    {
+                                          ItemId = l.FoodItem.ItemId,
+                                          ItemName = l.FoodItem.Item,
+                                          ItemImg = l.FoodItem.ItemImg
+                                    }).ToArray()
                               }).ToListAsync();
                   return Ok(x);
             }

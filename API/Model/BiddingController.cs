@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace API.Model
 {
-    public class BiddingController
-    {
-        
-    }
+      public class EventBidding
+      {
+
+
+      }
 }

@@ -41,5 +41,8 @@ namespace API.Model
             [JsonIgnore]
             public virtual Review EventReviews { get; set; }
 
+            [JsonIgnore]
+            public virtual ICollection<EventFoodItems> EventFoodItems { get; set; }
+
       }
 }

@@ -126,6 +126,19 @@ namespace API.Data
                   context.SaveChanges();
                   Console.WriteLine("Catering_FoodItems Seeding Done");
             }
+            public static void SeedEventsFood(Context context)
+            {
+                  if (context.Event_FoodItems.Any()) return;
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/Event_ItemSeed.json");
+                  var Item = JsonSerializer.Deserialize<List<EventFoodItems>>(Data);
+
+                  foreach (var r in Item)
+                  {
+                        context.Event_FoodItems.Add(r);
+                  }
+                  context.SaveChanges();
+                  Console.WriteLine("Catering_FoodItems Seeding Done");
+            }
 
       }
 }

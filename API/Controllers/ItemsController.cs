@@ -44,8 +44,8 @@ public class ItemsController : Controller
       //   "cateringId": "Flynn",
       //   "foodItemsId": "f093576e-95d4-4f3c-8216-a2b495c08019"
       // }
-      [HttpDelete("DeleteItem")]
-      public async Task<IActionResult> DeleteFoods([FromBody] Catering_FoodItems Foods)
+      [HttpDelete("DeleteCateringFoodItem")]
+      public async Task<IActionResult> DeleteCateringFoods([FromBody] Catering_FoodItems Foods)
       {
             var f = await _context.Catering_FoodItems
                         .AsNoTracking()
@@ -54,6 +54,39 @@ public class ItemsController : Controller
             if (f != null)
             {
                   _context.Catering_FoodItems.Remove(Foods);
+                  _context.SaveChanges();
+                  return Ok("Item Removed");
+            }
+            else
+            {
+                  return BadRequest("Invalid Request");
+            }
+      }
+
+      #endregion
+
+      #region EventsFoodItems_Controller
+      [HttpPost("Post_Event_Items")]
+      public async Task<IActionResult> PostFoods([FromBody] EventFoodItems[] Foods)
+      {
+            foreach (var x in Foods)
+            {
+                  await _context.Event_FoodItems.AddAsync(x);
+                  await _context.SaveChangesAsync();
+            }
+            return Ok("Items Added");
+      }
+
+      [HttpDelete("Delete_Event_Food_Item")]
+      public async Task<IActionResult> DeleteEventFoods([FromBody] EventFoodItems Foods)
+      {
+            var f = await _context.Event_FoodItems
+                        .AsNoTracking()
+                        .FirstAsync(w => w.EventId == Foods.EventId
+                              && w.FoodItemsId == Foods.FoodItemsId);
+            if (f != null)
+            {
+                  _context.Event_FoodItems.Remove(Foods);
                   _context.SaveChanges();
                   return Ok("Item Removed");
             }

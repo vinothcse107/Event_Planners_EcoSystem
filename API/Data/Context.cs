@@ -13,6 +13,7 @@ namespace API.Data
             public DbSet<Catering> Caterings { get; set; }
             public DbSet<CateringFoodItem> CateringFoodItems { get; set; }
             public DbSet<Catering_FoodItems> Catering_FoodItems { get; set; }
+            public DbSet<EventFoodItems> Event_FoodItems { get; set; }
 
 
             public DbSet<Review> Reviews { get; set; }
@@ -21,6 +22,11 @@ namespace API.Data
             {
                   modelBuilder.Entity<Catering_FoodItems>()
                   .HasKey(e => new { e.CateringId, e.FoodItemsId });
+
+                  modelBuilder.Entity<EventFoodItems>()
+                  .HasKey(e => new { e.EventId, e.FoodItemsId });
+
+
             }
 
 
