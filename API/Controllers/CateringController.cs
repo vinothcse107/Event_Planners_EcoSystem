@@ -9,6 +9,24 @@ namespace API.Controllers
                   _context = context;
             }
             #region Client Controls
+
+
+            [HttpGet("Get_FoodItems_By_Catering/{Id}")]
+            public async Task<IActionResult> GetFoodsByCatering(string Id)
+            {
+
+                  var x = await _context.Caterings.Where(w => w.CatererUserId == Id)
+                        .Select(s => s.CateringItems.Select(o => new
+                        {
+                              ItemId = o.FoodItem.ItemId,
+                              Item = o.FoodItem.Item,
+                              Img = o.FoodItem.ItemImg
+                        }))
+                        .ToListAsync();
+
+                  return Ok(x);
+            }
+
             // Get Halls For Display Cards Path : /halls
             [HttpGet("Get_All_Catering_Cards")]
             [HttpGet("Get_Admin_Catering_Cards")]
@@ -16,21 +34,22 @@ namespace API.Controllers
             {
                   try
                   {
-                        var x = await (from u in _context.Users join p in _context.Caterings on u.Username equals p.CateringUserId select new { u, p })
+                        var x = await (from u in _context.Users join p in _context.Caterings on u.Username equals p.CatererUserId select new { u, p })
                         .Select(s => new
                         {
                               UserId = s.u.Username,
                               Name = s.u.Name,
+                              CatererTeamName = s.p.CatererTeamName,
                               ProfileImg = s.u.ProfileImg,
                               DisplayImg = s.p.DisplayImg,
                               Phone = s.u.Phone,
                               Email = s.u.Email,
                               Location = s.u.Location,
                               Experience = s.p.Experience,
-                              Rating = _context.Events.Where(w => w.CateringId == s.p.CateringUserId).Any()
+                              Rating = _context.Events.Where(w => w.CateringId == s.p.CatererUserId).Any()
                                           ? Math.Round((from r in _context.Reviews
                                                         join e in _context.Events on r.ReviewID equals e.EventID
-                                                        where s.p.CateringUserId == e.CateringId
+                                                        where s.p.CatererUserId == e.CateringId
                                                         select r.CateringRating).Average(), 1) : 0.0
                         })
                         .ToListAsync();
@@ -65,20 +84,21 @@ namespace API.Controllers
                         // Show All Related Data About Catering
                         var x = await (from u in _context.Users
                                        join p in _context.Caterings
-                                       on u.Username equals p.CateringUserId
+                                       on u.Username equals p.CatererUserId
                                        where u.Username == Id
                                        select new { u, p })
                         .Select(s => new
                         {
                               UserId = s.u.Username,
                               Name = s.u.Name,
+                              CatererTeamName = s.p.CatererTeamName,
                               ProfileImg = s.u.ProfileImg,
                               DisplayImg = s.p.DisplayImg,
                               Phone = s.u.Phone,
                               Email = s.u.Email,
                               Location = s.u.Location,
                               Experience = s.p.Experience,
-                              OverAllRating = _context.Events.Where(w => w.CateringId == s.p.CateringUserId).Any()
+                              OverAllRating = _context.Events.Where(w => w.CateringId == s.p.CatererUserId).Any()
                                           ? Math.Round((from r in _context.Reviews
                                                         join e in _context.Events on r.ReviewID equals e.EventID
                                                         where Id == e.CateringId
@@ -95,30 +115,31 @@ namespace API.Controllers
             }
 
             // Get Halls Data By Location
-            [HttpGet("Get_Halls/{Location}")]
+            [HttpGet("Get_Catering/{Location}")]
             public async Task<IActionResult> GetCateringsByLocation(string Location)
             {
                   try
                   {
                         var x = await (from u in _context.Users
                                        join p in _context.Caterings
-                                       on u.Username equals p.CateringUserId
+                                       on u.Username equals p.CatererUserId
                                        where u.Location == Location
                                        select new { u, p })
                         .Select(s => new
                         {
                               UserId = s.u.Username,
                               Name = s.u.Name,
+                              CatererTeamName = s.p.CatererTeamName,
                               ProfileImg = s.u.ProfileImg,
                               DisplayImg = s.p.DisplayImg,
                               Phone = s.u.Phone,
                               Email = s.u.Email,
                               Location = s.u.Location,
                               Experience = s.p.Experience,
-                              OverAllRating = _context.Events.Where(w => w.CateringId == s.p.CateringUserId).Any()
+                              OverAllRating = _context.Events.Where(w => w.CateringId == s.p.CatererUserId).Any()
                                           ? Math.Round((from r in _context.Reviews
                                                         join e in _context.Events on r.ReviewID equals e.EventID
-                                                        where e.CateringId == s.p.CateringUserId
+                                                        where e.CateringId == s.p.CatererUserId
                                                         select r.CateringRating).Average(), 1) : 0.0,
                         }).ToListAsync();
                         return Ok(x);
@@ -137,7 +158,8 @@ namespace API.Controllers
             {
                   var x = await _context.Caterings.AddAsync(new Catering
                   {
-                        CateringUserId = model.CateringUserId,
+                        CatererUserId = model.CatererUserId,
+                        CatererTeamName = model.CatererTeamName,
                         Experience = model.Experience,
                         DisplayImg = model.DisplayImg
                   });
@@ -155,7 +177,7 @@ namespace API.Controllers
                         if (user != null)
                         {
                               var Catering = await _context.Caterings.AsNoTracking()
-                                    .FirstOrDefaultAsync(e => e.CateringUserId == m.UserId);
+                                    .FirstOrDefaultAsync(e => e.CatererUserId == m.UserId);
                               if (Catering != null)
                               {
                                     if (ModelState.IsValid)
@@ -172,10 +194,10 @@ namespace API.Controllers
                                           };
                                           var p = new Catering
                                           {
-                                                CateringUserId = user.Username,
+                                                CatererTeamName = m.CatererTeamName,
+                                                CatererUserId = user.Username,
                                                 Experience = m.Experience,
                                                 DisplayImg = m.DisplayImg
-
                                           };
 
 
@@ -206,8 +228,12 @@ namespace API.Controllers
 
             }
 
+            /*
+            * Error Occured By ForeignKey in Events
+            * "FK_Events_Caterings_CateringId"
+            */
             [HttpDelete("DeleteCatering/{UserId}")]
-            public async Task<IActionResult> Delete(string UserId)
+            public async Task<IActionResult> DeleteCatering(string UserId)
             {
                   var user = await _context.Users.FindAsync(UserId);
                   if (user != null)
@@ -229,7 +255,7 @@ namespace API.Controllers
                               return NotFound(new
                               {
                                     StatusCode = 404,
-                                    Message = "Hall Not Found",
+                                    Message = "Caterer Not Found",
                               });
                         }
                   }
@@ -238,47 +264,10 @@ namespace API.Controllers
                         return NotFound(new
                         {
                               StatusCode = 404,
-                              Message = "Hall Not Found",
+                              Message = "Caterer Not Found",
                         });
                   }
             }
-
-            #endregion
-
-            #region Foods
-
-            [HttpGet("Get_Items_By_Catering/{Id}")]
-            public async Task<IActionResult> GetDishesByCatering(string Id)
-            {
-
-                  var x = await _context.Caterings.Where(w => w.CateringUserId == Id)
-                        .Select(s => s.CateringItems.Select(o => new
-                        {
-                              ItemId = o.FoodItem.ItemId,
-                              Item = o.FoodItem.Item,
-                              Img = o.FoodItem.ItemImg
-                        }))
-                        .ToListAsync();
-
-                  return Ok(x);
-            }
-
-            [HttpGet("Get_Items_By_Test")]
-            public async Task<IActionResult> GetCatering()
-            {
-
-                  var x = await _context.Caterings
-                        .Select(s => s.CateringEvents.Select(o => new
-                        {
-                              EventName = o.EventName,
-                              EventId = o.EventID,
-                              Time = o.EventTime
-                        }))
-                        .ToListAsync();
-
-                  return Ok(x);
-            }
-
 
             #endregion
 

@@ -58,21 +58,27 @@ public class EventController : Controller
                                  select new { u, e }
                               ).Select(s => new
                               {
+                                    // Event Data
                                     EventId = s.e.EventID,
                                     User = s.u.Username,
                                     EventName = s.e.EventName,
                                     EventTime = s.e.EventTime,
+                                    // Hall Data
                                     HallName = s.e.Halls.Hall_Name,
                                     Location = s.e.Halls.Location,
                                     Description = s.e.Halls.Description,
+                                    // PhotoGrapherData
                                     PhotoGrapher = s.e.PhotoGrapherID,
+                                    PhotoTeamName = s.e.Photographer.PhotoTeamName,
+                                    // Catering Data
                                     Catering = s.e.CateringId,
+                                    CatererTeamName = s.e.Catering.CatererTeamName,
                                     Food_Items = s.e.EventFoodItems.Select(l => new
                                     {
                                           ItemId = l.FoodItem.ItemId,
                                           ItemName = l.FoodItem.Item,
                                           ItemImg = l.FoodItem.ItemImg
-                                    }).ToArray()
+                                    }).ToArray(),
                               }).ToListAsync();
                   return Ok(x);
             }
@@ -80,6 +86,52 @@ public class EventController : Controller
             {
                   return NotFound();
             }
+      }
+
+      [HttpGet("GetItems_By_EventId/{EveId}")]
+      // TestCase (EventId): 
+      // a9a04b80-2341-4acb-91c5-2a7cc2f8faa8,
+      // e8e47fa2-687b-4071-8ba9-92838ea8996e
+      public async Task<IActionResult> GetFoodByEventId(string EveId)
+      {
+            var g = new Guid(EveId);
+            try
+            {
+                  var x = await (
+                                    from e in _context.Events
+                                    where e.EventID == g
+                                    select new { e }
+                              ).Select(s => new
+                              {
+                                    // Event Data
+                                    EventId = s.e.EventID,
+                                    User = s.e.User_ID,
+                                    EventName = s.e.EventName,
+                                    EventTime = s.e.EventTime,
+                                    // Hall Data
+                                    HallName = s.e.Halls.Hall_Name,
+                                    Location = s.e.Halls.Location,
+                                    Description = s.e.Halls.Description,
+                                    // PhotoGrapherData
+                                    PhotoGrapher = s.e.PhotoGrapherID,
+                                    PhotoTeamName = s.e.Photographer.PhotoTeamName,
+                                    // Catering Data
+                                    Catering = s.e.CateringId,
+                                    CatererTeamName = s.e.Catering.CatererTeamName,
+                                    Food_Items = s.e.EventFoodItems.Select(l => new
+                                    {
+                                          ItemId = l.FoodItem.ItemId,
+                                          ItemName = l.FoodItem.Item,
+                                          ItemImg = l.FoodItem.ItemImg
+                                    }).ToArray(),
+                              }).ToListAsync();
+                  return Ok(x);
+            }
+            catch
+            {
+                  return NotFound();
+            }
+
       }
 
 }

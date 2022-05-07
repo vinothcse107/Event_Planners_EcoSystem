@@ -24,6 +24,7 @@ public class PhotographerController : ControllerBase
                         Name = s.u.Name,
                         ProfileImg = s.u.ProfileImg,
                         DisplayImg = s.p.DisplayImg,
+                        PhotoTeamName = s.p.PhotoTeamName,
                         Phone = s.u.Phone,
                         Email = s.u.Email,
                         Location = s.u.Location,
@@ -73,6 +74,7 @@ public class PhotographerController : ControllerBase
                   {
                         UserId = s.u.Username,
                         Name = s.u.Name,
+                        PhotoTeamName = s.p.PhotoTeamName,
                         ProfileImg = s.u.ProfileImg,
                         DisplayImg = s.p.DisplayImg,
                         Phone = s.u.Phone,
@@ -110,6 +112,7 @@ public class PhotographerController : ControllerBase
                   {
                         UserId = s.u.Username,
                         Name = s.u.Name,
+                        PhotoTeamName = s.p.PhotoTeamName,
                         ProfileImg = s.u.ProfileImg,
                         DisplayImg = s.p.DisplayImg,
                         Phone = s.u.Phone,
@@ -139,6 +142,7 @@ public class PhotographerController : ControllerBase
             var x = await _context.Photographers.AddAsync(new Photographer
             {
                   PhotographerUserId = model.PhotographerUserId,
+                  PhotoTeamName = model.PhotoTeamName,
                   Experience = model.Experience,
                   DisplayImg = model.DisplayImg
             });
@@ -174,6 +178,7 @@ public class PhotographerController : ControllerBase
                                     var p = new Photographer
                                     {
                                           PhotographerUserId = user.Username,
+                                          PhotoTeamName = m.PhotoTeamName,
                                           Experience = m.Experience,
                                           DisplayImg = m.DisplayImg
 

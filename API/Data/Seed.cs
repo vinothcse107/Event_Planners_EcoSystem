@@ -116,7 +116,7 @@ namespace API.Data
             public static void SeedManyToMany(Context context)
             {
                   if (context.Catering_FoodItems.Any()) return;
-                  var Data = System.IO.File.ReadAllText("Data/SeedData/ManySeed.json");
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/FoodItemsManySeed.json");
                   var Item = JsonSerializer.Deserialize<List<Catering_FoodItems>>(Data);
 
                   foreach (var r in Item)

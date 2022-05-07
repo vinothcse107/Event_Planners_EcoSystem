@@ -127,7 +127,7 @@ public class AccountController : ControllerBase
 
                   var c = await (from u in _context.Users
                                  join p in _context.Caterings
-                                 on u.Username equals p.CateringUserId
+                                 on u.Username equals p.CatererUserId
                                  where u.Location == Local
                                  select new { u, p })
                   .Select(s => new
@@ -140,11 +140,11 @@ public class AccountController : ControllerBase
                         Email = s.u.Email,
                         Location = s.u.Location,
                         Experience = s.p.Experience,
-                        OverAllRating = _context.Events.Where(w => w.PhotoGrapherID == s.p.CateringUserId).Any()
+                        OverAllRating = _context.Events.Where(w => w.CateringId == s.p.CatererUserId).Any()
                                     ? Math.Round((from r in _context.Reviews
                                                   join e in _context.Events on r.ReviewID equals e.EventID
-                                                  where e.PhotoGrapherID == s.p.CateringUserId
-                                                  select r.PhotoRating).Average(), 1) : 0.0,
+                                                  where e.CateringId == s.p.CatererUserId
+                                                  select r.CateringRating).Average(), 1) : 0.0,
                   })
                   .OrderByDescending(o => o.OverAllRating)
                   .Take(3)

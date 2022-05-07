@@ -1,14 +1,17 @@
 [
       {
             "PhotographerUserId": "Combs",
+            "PhotoTeamName": "Furious Four",
             "Experience": 10
       },
       {
             "PhotographerUserId": "Horne",
+            "PhotoTeamName": "Candid Crocs",
             "Experience": 7
       },
       {
             "PhotographerUserId": "Cervantes",
+            "PhotoTeamName": "Pascal Boom",
             "Experience": 15
       }
 ]
