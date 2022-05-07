@@ -216,8 +216,8 @@ public class PhotographerController : ControllerBase
                   var photographer = await _context.Photographers.FindAsync(UserId);
                   if (photographer != null)
                   {
-                        _context.Photographers.Remove(photographer);
                         _context.Users.Remove(user);
+                        _context.Photographers.Remove(photographer);
                         _context.SaveChanges();
                         return Ok(new
                         {

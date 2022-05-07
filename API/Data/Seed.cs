@@ -113,19 +113,19 @@ namespace API.Data
                   context.SaveChanges();
                   Console.WriteLine("Reviews Seeding Done");
             }
+            public static void SeedManyToMany(Context context)
+            {
+                  if (context.Catering_FoodItems.Any()) return;
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/ManySeed.json");
+                  var Item = JsonSerializer.Deserialize<List<Catering_FoodItems>>(Data);
+
+                  foreach (var r in Item)
+                  {
+                        context.Catering_FoodItems.Add(r);
+                  }
+                  context.SaveChanges();
+                  Console.WriteLine("Catering_FoodItems Seeding Done");
+            }
 
       }
 }
-
-
-
-// [
-//       {
-//             "EventName": "eiusmod labore qui",
-//             "EventTime": "2024-01-03T08:50:09",
-//             "User_ID": "vinosiva",
-//             "Hall_ID": "1B71E1CF-55FF-4B6D-D06B-08DA2AB4423E",
-//             "PhotoGrapherID": "Combs",
-//             "CateringId": "Flynn"
-//       }
-// ]
