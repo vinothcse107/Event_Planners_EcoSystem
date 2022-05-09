@@ -15,7 +15,7 @@ public class Hall
       public string OwnerUsername { get; set; }
       [JsonIgnore]
       public User User { get; set; }
-      public byte[] DisplayImg { get; set; }
+      public string DisplayImg { get; set; }
       public string Hall_Name { get; set; }
       public string Location { get; set; }
       public string Description { get; set; }

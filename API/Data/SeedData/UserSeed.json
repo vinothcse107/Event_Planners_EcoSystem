@@ -6,6 +6,7 @@
             "Phone": "6383705751",
             "Location": "chennai",
             "Role": "member",
+            "Status": 1,
             "Password_id": "Password"
       },
       {
@@ -15,6 +16,7 @@
             "Phone": "(937) 523-2372",
             "Location": "banglore",
             "Role": "admin",
+            "Status": 1,
             "Password_id": "Kinney"
       },
       {
@@ -24,6 +26,7 @@
             "Phone": "(820) 411-3660",
             "Location": "chennai",
             "Role": "member",
+            "Status": 1,
             "Password_id": "Rocha"
       },
       {
@@ -33,6 +36,7 @@
             "Phone": "(842) 582-3521",
             "Location": "chennai",
             "Role": "photographer",
+            "Status": 1,
             "Password_id": "Sawyer"
       },
       {
@@ -42,6 +46,7 @@
             "Phone": "(893) 427-2229",
             "Location": "chennai",
             "Role": "photographer",
+            "Status": 1,
             "Password_id": "Holloway"
       },
       {
@@ -51,6 +56,7 @@
             "Phone": "(814) 510-2874",
             "Location": "kochi",
             "Role": "member",
+            "Status": 1,
             "Password_id": "Black"
       },
       {
@@ -60,6 +66,7 @@
             "Phone": "(807) 551-3682",
             "Location": "chennai",
             "Role": "catering",
+            "Status": 1,
             "Password_id": "Pratt"
       },
       {
@@ -69,6 +76,7 @@
             "Phone": "(893) 495-3338",
             "Location": "chennai",
             "Role": "catering",
+            "Status": 1,
             "Password_id": "Howe"
       },
       {
@@ -78,6 +86,7 @@
             "Phone": "(868) 580-2479",
             "Location": "banglore",
             "Role": "member",
+            "Status": 1,
             "Password_id": "Riggs"
       },
       {
@@ -87,6 +96,7 @@
             "Phone": "(995) 545-2047",
             "Location": "kochi",
             "Role": "catering",
+            "Status": 1,
             "Password_id": "Burgess"
       },
       {
@@ -96,6 +106,7 @@
             "Phone": "(990) 479-3774",
             "Location": "kochi",
             "Role": "hall_owner",
+            "Status": 1,
             "Password_id": "Randall"
       },
       {
@@ -105,6 +116,7 @@
             "Phone": "(949) 414-2426",
             "Location": "banglore",
             "Role": "member",
+            "Status": 1,
             "Password_id": "Garner"
       },
       {
@@ -114,6 +126,7 @@
             "Phone": "(995) 419-3434",
             "Location": "kochi",
             "Role": "hall_owner",
+            "Status": 1,
             "Password_id": "Villarreal"
       },
       {
@@ -123,6 +136,7 @@
             "Phone": "(905) 596-2675",
             "Location": "chennai",
             "Role": "hall_owner",
+            "Status": 1,
             "Password_id": "Morton"
       },
       {
@@ -132,6 +146,7 @@
             "Phone": "(964) 586-2568",
             "Location": "kochi",
             "Role": "member",
+            "Status": 1,
             "Password_id": "Miller"
       },
       {
@@ -141,6 +156,7 @@
             "Phone": "(986) 494-2890",
             "Location": "banglore",
             "Role": "photographer",
+            "Status": 1,
             "Password_id": "Dorsey"
       }
 ]

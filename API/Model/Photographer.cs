@@ -6,7 +6,7 @@ public class Photographer
       public string PhotographerUserId { get; set; }
       public string PhotoTeamName { get; set; }
       public int Experience { get; set; }
-      public byte[] DisplayImg { get; set; }
+      public string DisplayImg { get; set; }
 
       [JsonIgnore]
       public virtual User User { get; set; }
@@ -19,7 +19,7 @@ public class photographerDTO
       public string PhotoTeamName { get; set; }
 
       public int Experience { get; set; }
-      public byte[] DisplayImg { get; set; }
+      public string DisplayImg { get; set; }
 }
 
 public class PhotographerDTO2
@@ -28,8 +28,8 @@ public class PhotographerDTO2
       public string UserId { get; set; }
       public string Name { get; set; }
       public string PhotoTeamName { get; set; }
-      public byte[] ProfileImg { get; set; }
-      public byte[] DisplayImg { get; set; }
+      public string ProfileImg { get; set; }
+      public string DisplayImg { get; set; }
       public string Phone { get; set; }
       public string Email { get; set; }
       public string Location { get; set; }

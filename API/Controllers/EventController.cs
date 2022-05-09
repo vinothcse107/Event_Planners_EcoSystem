@@ -65,14 +65,17 @@ public class EventController : Controller
                                     EventTime = s.e.EventTime,
                                     // Hall Data
                                     HallName = s.e.Halls.Hall_Name,
+                                    HallImg = s.e.Halls.DisplayImg,
                                     Location = s.e.Halls.Location,
                                     Description = s.e.Halls.Description,
                                     // PhotoGrapherData
                                     PhotoGrapher = s.e.PhotoGrapherID,
                                     PhotoTeamName = s.e.Photographer.PhotoTeamName,
+                                    PhotoImg = s.e.Photographer.DisplayImg,
                                     // Catering Data
                                     Catering = s.e.CateringId,
                                     CatererTeamName = s.e.Catering.CatererTeamName,
+                                    CatererImg = s.e.Catering.DisplayImg,
                                     Food_Items = s.e.EventFoodItems.Select(l => new
                                     {
                                           ItemId = l.FoodItem.ItemId,
@@ -88,11 +91,11 @@ public class EventController : Controller
             }
       }
 
-      [HttpGet("GetItems_By_EventId/{EveId}")]
+      [HttpGet("Get_Event_By_EventId/{EveId}")]
       // TestCase (EventId): 
       // a9a04b80-2341-4acb-91c5-2a7cc2f8faa8,
       // e8e47fa2-687b-4071-8ba9-92838ea8996e
-      public async Task<IActionResult> GetFoodByEventId(string EveId)
+      public async Task<IActionResult> GetEventByEventId(string EveId)
       {
             var g = new Guid(EveId);
             try
@@ -110,14 +113,17 @@ public class EventController : Controller
                                     EventTime = s.e.EventTime,
                                     // Hall Data
                                     HallName = s.e.Halls.Hall_Name,
+                                    HallImg = s.e.Halls.DisplayImg,
                                     Location = s.e.Halls.Location,
                                     Description = s.e.Halls.Description,
                                     // PhotoGrapherData
                                     PhotoGrapher = s.e.PhotoGrapherID,
                                     PhotoTeamName = s.e.Photographer.PhotoTeamName,
+                                    PhotoImg = s.e.Photographer.DisplayImg,
                                     // Catering Data
                                     Catering = s.e.CateringId,
                                     CatererTeamName = s.e.Catering.CatererTeamName,
+                                    CatererImg = s.e.Catering.DisplayImg,
                                     Food_Items = s.e.EventFoodItems.Select(l => new
                                     {
                                           ItemId = l.FoodItem.ItemId,

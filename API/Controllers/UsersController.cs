@@ -138,7 +138,8 @@ public class UsersController : ControllerBase
             var i = await _context.Users.FindAsync(id);
             if (i != null)
             {
-                  _context.Remove(id);
+                  i.Status = 0;
+                  _context.Users.Update(i);
                   return Ok("Account Deleted !!");
             }
             else
