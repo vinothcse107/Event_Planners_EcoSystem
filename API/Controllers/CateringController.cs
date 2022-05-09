@@ -78,7 +78,7 @@ namespace API.Controllers
                                       {
                                             Username = u.Username,
                                             Review = r.CateringReviewContent,
-                                            Rating = r.PhotoRating
+                                            Rating = r.CateringRating
                                       } : null).ToArrayAsync();
 
                         // Show All Related Data About Catering
@@ -99,10 +99,7 @@ namespace API.Controllers
                               Location = s.u.Location,
                               Experience = s.p.Experience,
                               OverAllRating = _context.Events.Where(w => w.CateringId == s.p.CatererUserId).Any()
-                                          ? Math.Round((from r in _context.Reviews
-                                                        join e in _context.Events on r.ReviewID equals e.EventID
-                                                        where Id == e.CateringId
-                                                        select r.CateringRating).Average(), 1) : 0.0,
+                                          ? Math.Round((AReviews).Select(o => o.Rating).Average(), 1) : 0.0,
                               Reviews = AReviews
                         })
                         .FirstAsync();

@@ -11,6 +11,19 @@ namespace API.Data
 {
       public class Seed
       {
+            public Seed(Context context)
+            {
+                  Seed.SeedUsers(context);
+                  Seed.SeedHalls(context);
+                  Seed.SeedCatering(context);
+                  Seed.SeedCateringItems(context);
+                  Seed.SeedPhotoGraphers(context);
+                  Seed.SeedEvents(context);
+                  Seed.SeedReviews(context);
+                  Seed.SeedManyToMany(context);
+                  Seed.SeedEventsFood(context);
+                  Seed.SeedEventsBidding(context);
+            }
             public static void SeedUsers(Context context)
             {
                   if (context.Users.Any()) return;
@@ -138,6 +151,19 @@ namespace API.Data
                   }
                   context.SaveChanges();
                   Console.WriteLine("Catering_FoodItems Seeding Done");
+            }
+            public static void SeedEventsBidding(Context context)
+            {
+                  if (context.Event_Bidding.Any()) return;
+                  var Data = System.IO.File.ReadAllText("Data/SeedData/EventBidding.json");
+                  var Item = JsonSerializer.Deserialize<List<EventBidding>>(Data);
+
+                  foreach (var r in Item)
+                  {
+                        context.Event_Bidding.Add(r);
+                  }
+                  context.SaveChanges();
+                  Console.WriteLine("Bidding Events Done Seeding Done");
             }
 
       }

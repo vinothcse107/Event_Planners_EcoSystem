@@ -18,7 +18,6 @@ public class HallController : ControllerBase
       {
             try
             {
-
                   var x = await _context.Halls
                   .Select(s => new
                   {

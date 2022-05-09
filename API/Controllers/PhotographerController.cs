@@ -17,7 +17,10 @@ public class PhotographerController : ControllerBase
       {
             try
             {
-                  var x = await (from u in _context.Users join p in _context.Photographers on u.Username equals p.PhotographerUserId select new { u, p })
+                  var x = await (from u in _context.Users
+                                 join p in _context.Photographers on
+                                 u.Username equals p.PhotographerUserId
+                                 select new { u, p })
                   .Select(s => new
                   {
                         UserId = s.u.Username,
@@ -82,10 +85,7 @@ public class PhotographerController : ControllerBase
                         Location = s.u.Location,
                         Experience = s.p.Experience,
                         OverAllRating = _context.Events.Where(w => w.PhotoGrapherID == s.p.PhotographerUserId).Any()
-                                    ? Math.Round((from r in _context.Reviews
-                                                  join e in _context.Events on r.ReviewID equals e.EventID
-                                                  where Id == e.PhotoGrapherID
-                                                  select r.PhotoRating).Average(), 1) : 0.0,
+                                    ? Math.Round((AReviews).Select(o => o.Rating).Average(), 1) : 0.0,
                         Reviews = AReviews
                   })
                   .FirstAsync();

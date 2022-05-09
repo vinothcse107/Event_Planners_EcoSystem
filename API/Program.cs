@@ -22,7 +22,6 @@ if (app.Environment.IsDevelopment())
       app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
 
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
@@ -37,16 +36,7 @@ try
 {
       var context = services.GetRequiredService<Context>();
       context.Database.Migrate();
-      Seed.SeedUsers(context);
-      Seed.SeedHalls(context);
-      Seed.SeedCatering(context);
-      Seed.SeedCateringItems(context);
-      Seed.SeedPhotoGraphers(context);
-      Seed.SeedEvents(context);
-      Seed.SeedReviews(context);
-      Seed.SeedManyToMany(context);
-      Seed.SeedEventsFood(context);
-
+      var s = new Seed(context);
 }
 catch (Exception ex)
 {

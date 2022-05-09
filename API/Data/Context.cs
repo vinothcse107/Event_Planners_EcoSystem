@@ -14,8 +14,7 @@ namespace API.Data
             public DbSet<CateringFoodItem> CateringFoodItems { get; set; }
             public DbSet<Catering_FoodItems> Catering_FoodItems { get; set; }
             public DbSet<EventFoodItems> Event_FoodItems { get; set; }
-
-
+            public DbSet<EventBidding> Event_Bidding { get; set; }
             public DbSet<Review> Reviews { get; set; }
 
             protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,12 +25,6 @@ namespace API.Data
                   modelBuilder.Entity<EventFoodItems>()
                   .HasKey(e => new { e.EventId, e.FoodItemsId });
 
-
             }
-
-
-
-
-
       }
 }

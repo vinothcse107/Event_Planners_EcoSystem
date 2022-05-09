@@ -23,7 +23,7 @@ namespace API.Model
             public virtual ICollection<Event> UserEvents { get; set; }
             public virtual ICollection<PhotoGallery> Photos { get; set; }
             public virtual ICollection<Hall> HallOwnerIds { get; set; }
-
+            public virtual ICollection<EventBidding> EventBids { get; set; }
             public virtual Photographer PhotoGrapherIds { get; set; }
             public virtual Catering CateringIds { get; set; }
 

@@ -1,25 +1,5 @@
 [
       {
-            "ReviewID": "63a20efa-c938-4f67-9200-9025628dc113",
-            "HallReviewContent": "reprehenderit tempor cupidatat esse eu proident adipisicing veniam consequat id",
-            "HallRating": 3,
-            "PhotographerReviewContent": "quis est non Lorem cillum minim est nostrud ut ea",
-            "PhotoRating": 5,
-            "CateringReviewContent": "nulla occaecat minim cillum consectetur id ea Lorem excepteur Lorem",
-            "CateringRating": 2
-      },
-
-      {
-            "ReviewID": "45c44bba-c548-40af-9b65-24581d2be5fb",
-            "HallReviewContent": "sit qui labore ad laborum proident dolor incididunt occaecat veniam",
-            "HallRating": 2,
-            "PhotographerReviewContent": "reprehenderit minim veniam sint minim minim cupidatat nulla cupidatat consequat",
-            "PhotoRating": 1,
-            "CateringReviewContent": "adipisicing laborum eu commodo proident ex sunt nulla cupidatat ut",
-            "CateringRating": 4
-      },
-
-      {
             "ReviewID": "fff22455-7149-4e53-a0c8-574a1f6b6459",
             "HallReviewContent": "ullamco eiusmod nulla laborum occaecat non id sunt proident culpa",
             "HallRating": 3,

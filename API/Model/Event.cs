@@ -43,6 +43,8 @@ namespace API.Model
 
             [JsonIgnore]
             public virtual ICollection<EventFoodItems> EventFoodItems { get; set; }
+            public virtual ICollection<EventBidding> EventBid { get; set; }
+
 
       }
 }
