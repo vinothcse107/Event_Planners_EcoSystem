@@ -86,7 +86,7 @@ public class AccountController : ControllerBase
                   .Select(d => new
                   {
                         HallID = d.HallID,
-                        HallName = d.Hall_Name,
+                        HallName = d.HallName,
                         Description = d.Description,
                         HallLocation = d.Location,
                         DisplayImg = d.DisplayImg,

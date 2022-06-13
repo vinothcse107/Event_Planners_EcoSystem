@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // => Extensions
-builder.Services.BuilderServices(builder.Configuration);
 
+builder.Services.BuilderServices(builder.Configuration);
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -43,7 +43,13 @@ catch (Exception ex)
       var logger = services.GetRequiredService<ILogger<Program>>();
       logger.LogError(ex, "An error occurred during migration");
 }
-
+app.Run(async (context) =>
+{
+      await Task.Run(() =>
+      {
+            context.Response.Redirect("https://localhost:5001/swagger/index.html");
+      });
+});
 app.Run();
 
 

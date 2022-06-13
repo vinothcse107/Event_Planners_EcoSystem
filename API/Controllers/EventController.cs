@@ -64,7 +64,7 @@ public class EventController : Controller
                                     EventName = s.e.EventName,
                                     EventTime = s.e.EventTime,
                                     // Hall Data
-                                    HallName = s.e.Halls.Hall_Name,
+                                    HallName = s.e.Halls.HallName,
                                     HallImg = s.e.Halls.DisplayImg,
                                     Location = s.e.Halls.Location,
                                     Description = s.e.Halls.Description,
@@ -112,7 +112,7 @@ public class EventController : Controller
                                     EventName = s.e.EventName,
                                     EventTime = s.e.EventTime,
                                     // Hall Data
-                                    HallName = s.e.Halls.Hall_Name,
+                                    HallName = s.e.Halls.HallName,
                                     HallImg = s.e.Halls.DisplayImg,
                                     Location = s.e.Halls.Location,
                                     Description = s.e.Halls.Description,

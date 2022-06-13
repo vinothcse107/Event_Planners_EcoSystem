@@ -52,7 +52,7 @@ public class UsersController : ControllerBase
                               Halls = _context.Halls.Where(e => e.OwnerUsername == s.Username)
                                           .Select(r => new
                                           {
-                                                HallName = r.Hall_Name,
+                                                HallName = r.HallName,
                                                 HallId = r.HallID,
                                                 Location = r.Location,
                                                 Description = r.Description,

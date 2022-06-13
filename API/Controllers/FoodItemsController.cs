@@ -70,13 +70,11 @@ public class FoodItemsController : Controller
       * Post Various Food Items In Catering_FoodItems("Many_To_Many Relationship")
       * Selecting Food From Bunch Of FoodList For Catering Service
       */
-      [HttpPost("Post_Food_Items")]
+      [HttpPost("Add_Food_Items_For_Specific_Catering")]
       public async Task<IActionResult> PostFoods([FromBody] Catering_FoodItems[] Foods)
       {
-            foreach (var x in Foods)
-            {
-                  await _context.Catering_FoodItems.AddAsync(x);
-            }
+            var e = Foods.AsEnumerable<Catering_FoodItems>();
+            await _context.Catering_FoodItems.AddRangeAsync(e);
             await _context.SaveChangesAsync();
             return Ok("Items Added");
       }

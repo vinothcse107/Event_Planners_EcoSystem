@@ -117,7 +117,7 @@ namespace API.Controllers
                                     EventId = s.EventID,
                                     EventName = s.EventName,
                                     EventTime = s.EventTime,
-                                    Hall = s.Halls.Hall_Name,
+                                    Hall = s.Halls.HallName,
                                     Location = s.Halls.Location,
                                     HallDescription = s.Halls.Description
                               })
@@ -141,7 +141,7 @@ namespace API.Controllers
                                     EventId = s.EventID,
                                     EventName = s.EventName,
                                     EventTime = s.EventTime,
-                                    Hall = s.Halls.Hall_Name,
+                                    Hall = s.Halls.HallName,
                                     Location = s.Halls.Location,
                                     HallDescription = s.Halls.Description
                               }).ToListAsync();

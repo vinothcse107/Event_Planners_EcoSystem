@@ -22,7 +22,7 @@ public class HallController : ControllerBase
                   .Select(s => new
                   {
                         HallID = s.HallID,
-                        HallName = s.Hall_Name,
+                        HallName = s.HallName,
                         Description = s.Description,
                         HallLocation = s.Location,
                         DisplayImg = s.DisplayImg,
@@ -114,7 +114,7 @@ public class HallController : ControllerBase
                   .Select(d => new
                   {
                         HallID = d.HallID,
-                        HallName = d.Hall_Name,
+                        HallName = d.HallName,
                         Description = d.Description,
                         HallLocation = d.Location,
                         DisplayImg = d.DisplayImg,
@@ -145,7 +145,7 @@ public class HallController : ControllerBase
                   {
                         HallID = model.HallID,
                         OwnerUsername = model.OwnerUsername,
-                        Hall_Name = model.Hall_Name,
+                        HallName = model.HallName,
                         Location = model.Location,
                         Description = model.Description
                   }
@@ -182,7 +182,7 @@ public class HallController : ControllerBase
                                     HallID = model.HallID,
                                     OwnerUsername = model.OwnerUsername,
                                     DisplayImg = null,
-                                    Hall_Name = model.Hall_Name,
+                                    HallName = model.HallName,
                                     Location = model.Location,
                                     Description = model.Description
 

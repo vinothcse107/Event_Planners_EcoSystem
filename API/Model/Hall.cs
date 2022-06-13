@@ -16,7 +16,7 @@ public class Hall
       [JsonIgnore]
       public User User { get; set; }
       public string DisplayImg { get; set; }
-      public string Hall_Name { get; set; }
+      public string HallName { get; set; }
       public string Location { get; set; }
       public string Description { get; set; }
       public virtual ICollection<Event> HallEvents { get; set; }
@@ -26,7 +26,7 @@ public class HallDTO
 {
       public Guid HallID { get; set; }
       public string OwnerUsername { get; set; }
-      public string Hall_Name { get; set; }
+      public string HallName { get; set; }
       public string Location { get; set; }
       public string Description { get; set; }
 
