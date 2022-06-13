@@ -7,12 +7,14 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 .navbar {
   position: absolute;
   top: 0;
   z-index: 99999;
   padding: 25px 0;
 }
+
 .navbar .logo {
   font-size: 2em;
   text-transform: uppercase;
@@ -20,9 +22,11 @@
   margin-left: 15px;
   letter-spacing: 2px;
 }
+
 .navbar ul.nav {
   margin-right: 10%;
 }
+
 .navbar ul.nav li.active,
 .navbar ul.nav li:hover {
   background: rgba(255, 255, 255, 0.5);
@@ -30,12 +34,14 @@
   border-radius: 5px;
   padding: 3px;
 }
+
 .navbar ul.nav li a {
   color: #fff;
   font-size: 1em;
   font-weight: 500;
   margin-right: 1em;
 }
+
 .navbar ul.nav li.active a,
 .navbar ul.nav li:hover a {
   color: #000;
@@ -47,12 +53,14 @@
   height: 70vh;
   width: 100%;
 }
+
 #bannerimg .backfade {
   position: relative;
   height: 100%;
   width: 100%;
   background: #000;
 }
+
 /* #bannerimg .backfade:before{
 	position: absolute;
 	content: '';
@@ -82,10 +90,12 @@
   z-index: 1;
   text-align: center;
 }
+
 #bannerimg .backfade .items .searchbar {
   border-width: 0px;
   margin-top: 3rem;
 }
+
 #bannerimg .backfade .items .input-group {
   display: flex;
   -webkit-box-align: center;
@@ -95,10 +105,12 @@
   background: rgb(255, 255, 255);
   border-radius: 0.8rem;
 }
+
 button {
   padding: 5px 8px;
   font-size: 1.2em;
 }
+
 #bannerimg .backfade .items .form-outline {
   width: 33rem;
   border: none;
@@ -113,6 +125,7 @@ button {
   font-size: 5.5em;
   font-weight: 750;
 }
+
 #bannerimg .backfade .items p {
   height: auto;
   color: #ccc;
@@ -122,6 +135,7 @@ button {
   font-size: 1.2em;
   font-weight: 500;
 }
+
 .search {
   border: none;
   font-size: 1.4rem;
@@ -132,6 +146,7 @@ button {
 .wrapper {
   margin: 10vh;
 }
+
 
 .card {
   border: none;

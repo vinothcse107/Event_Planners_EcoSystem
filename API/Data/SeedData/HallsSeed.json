@@ -2,35 +2,35 @@
       {
             "HallID": "1B71E1CF-55FF-4B6D-D06B-08DA2AB4423E",
             "OwnerUsername": "Luna",
-            "Hall_Name": "GRT",
+            "HallName": "GRT",
             "Location": "chennai",
             "Description": "nulla laborum et mollit qui amet aliqua nostrud nulla ullamco"
       },
       {
             "HallID": "83090584-BAD7-41D2-D06C-08DA2AB4423E",
             "OwnerUsername": "Bridges",
-            "Hall_Name": "Park Plaza",
+            "HallName": "Park Plaza",
             "Location": "banglore",
             "Description": "tempor adipisicing eu Lorem anim tempor tempor esse laboris et"
       },
       {
             "HallID": "DA0BD2D1-AB71-483D-D06D-08DA2AB4423E",
             "OwnerUsername": "Fowler",
-            "Hall_Name": "AMR",
+            "HallName": "AMR",
             "Location": "kochi",
             "Description": "proident ipsum laborum mollit excepteur aute laborum ipsum anim excepteur"
       },
       {
             "HallID": "E388CD77-542B-4C21-D06E-08DA2AB4423E",
             "OwnerUsername": "Bridges",
-            "Hall_Name": "CJ Pallazio",
+            "HallName": "CJ Pallazio",
             "Location": "chennai",
             "Description": "id consequat officia consequat ipsum ad Lorem mollit minim et"
       },
       {
             "HallID": "7CE79DA4-3623-4369-D06F-08DA2AB4423E",
             "OwnerUsername": "Luna",
-            "Hall_Name": "RayBay",
+            "HallName": "RayBay",
             "Location": "chennai",
             "Description": "anim minim enim occaecat ullamco adipisicing duis ea proident nostrud"
       }

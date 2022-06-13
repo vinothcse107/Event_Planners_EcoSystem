@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CateringServiceService } from '../services/catering-service.service';
+import { CateringModel } from '../shared/catering.model';
 
 @Component({
   selector: 'app-catering',
@@ -9,48 +11,32 @@ import { Router } from '@angular/router';
 export class CateringComponent implements OnInit {
 
   searchString:string='';
-  cook!: CookShow[];
-  constructor( private routes: Router) { }
+  catering!: any[];
+  constructor( private routes: Router, private service : CateringServiceService) { }
   
 
   ngOnInit(): void {
-    let cook: CookShow[];
-      this.cook = [
-        {
-          "Special": "Dehli Idly",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-        {
-          "Special": "Bombay Chutney ",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-        {
-          "Special": "Mysore Vada",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
 
-      ]
+    this.getCatering()
   }
-  View(hall: number)
+  // View(hall: number)
+  // {
+  //   this.routes.navigate(['halls/hallv'])
+  // }
+  getCatering()
   {
-    this.routes.navigate(['halls/hallv'])
-
-
+    this.service.getCatering().subscribe(data =>{
+      this.catering= data;
+      console.log(data);
+    })
   }
   
-  
 
 }
-export interface CookShow{
-  Special:string,
-  Experience: number,
-  name:string,
-  img:string
+// export interface CookShow{
+//   Special:string,
+//   Experience: number,
+//   name:string,
+//   img:string
 
-}
+// }

@@ -31,8 +31,8 @@ export class HomeserviceService {
     return this.http.get<any>(Url);
   }
 
-  GetHallData(Hallid : string): Observable<any[]> {
-    let Url = this.BaseUrl + "Hall/Get_Hall_Details/"+Hallid;
-    return this.http.get<any>(Url);
-  }
+  // GetHallData(Hallid : string): Observable<any[]> {
+  //   let Url = this.BaseUrl + "Hall/Get_Hall_Details/"+Hallid;
+  //   return this.http.get<any>(Url);
+  // }
 }

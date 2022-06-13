@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PhotographerService } from '../services/photographer.service';
+import { PhotoModel } from '../shared/photographer.model';
 
 @Component({
   selector: 'app-photographers',
@@ -8,34 +10,20 @@ import { Router } from '@angular/router';
 })
 export class PhotographersComponent implements OnInit {
 
-  photo!: PhotographerShow[];
+  photo!: any[];
   searchString:any="";
 
-  constructor(private routes: Router) { }
+  constructor(private routes: Router, private service : PhotographerService) { }
 
   ngOnInit(): void {
-      let photo: PhotographerShow[];
-      this.photo = [
-        {
-          "Special": "CJ Pallazio",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-        {
-          "Special": "CJ Pallazio",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-        {
-          "Special": "CJ Pallazio",
-          "Experience": 14,
-          "name":"Raja Kannu",
-          "img" : "https://source.unsplash.com/600x900/?cook"
-        },
-
-      ]
+      this.getPhotographer();
+  }
+  getPhotographer()
+  {
+    this.service.getPhotographer().subscribe(data =>{
+      this.photo= data;
+      console.log("data");
+    })
   }
   View(hall: number)
   {
@@ -44,10 +32,4 @@ export class PhotographersComponent implements OnInit {
 
   }
 }
-export interface PhotographerShow{
-  Special:string,
-  Experience: number,
-  name:string,
-  img:string
 
-}

@@ -3,8 +3,8 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
                   <div class="col col-xs-6 col-sm-6 col-md-6 col-xl-8">
                         <form [formGroup]="bsignUp">
-                              <div class="text-center mb-0 h1"
-                                    style="color: rgb(47, 47, 47); font-weight:700; font-size: 3.5em;">
+                              <div class="text-center mb-4 h1"
+                                    style="color: rgb(47, 47, 47); font-weight:700;width:max-content; font-size: 3.5em;">
                                     <p>Business Register</p>
                               </div>
 
@@ -31,7 +31,7 @@
 
                               <div class="mb-4 form-group form-row ">
                                     <select class="dropdown form-control" formControlName="role">
-                                          <option class="dropdown-item">Choose Profession</option>
+                                          <option  value =""disabled selected  class="dropdown-item">Choose Profession</option>
                                           <option class="dropdown-item" value="hall_owner">Hall Owner</option>
                                           <option class="dropdown-item" value="catering">Catering</option>
                                           <option class="dropdown-item" value="photographer">PhotoGrapher</option>

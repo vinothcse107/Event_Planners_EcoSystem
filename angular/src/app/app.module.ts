@@ -27,7 +27,7 @@ import { HallviewComponent } from './halls/hallview/hallview.component';
             PhotographersComponent,
             CateringComponent,
             BsignupComponent,
-            HallviewComponent
+            HallviewComponent,
       ],
       imports: [
             BrowserModule,

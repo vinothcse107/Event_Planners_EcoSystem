@@ -67,15 +67,14 @@
                   <div class="container mx-auto mt-4">
 
                         <div class="row">
-                              <div class="col-md-4" *ngFor="let card of cook | hallSearch:searchString:'Location'">
+                              <div class="col-md-4" *ngFor="let card of catering | hallSearch:searchString:'Location'">
                                     <div class="card text-white card-has-bg click-col mr-3" style="width: 18rem;"
-                                          style="background-image:url({{card.img}});">
-                                          <img class="card-img d-none" src={{card.img}}
+                                          style="background-image:url({{card.displayImg}});">
+                                          <img class="card-img d-none" src={{card.displayImg}}
                                                 alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
                                           <div class="card-img-overlay d-flex flex-column">
                                                 <div class="card-body">
-                                                      <h4 class="card-title mt-3 "><a class="text-white"
-                                                                  (click)="View(card.id)"> {{card.Special}}</a></h4>
+                                                      <h4 class="card-title mt-3 "><a class="text-white"> {{card.catererTeamName}}</a></h4>
 
                                                 </div>
                                                 <div class="card-footer">
@@ -85,8 +84,8 @@
                                                                   alt="Generic placeholder image"
                                                                   style="max-width:50px">
                                                             <div class="media-body">
-                                                                  <h6 class="my-0 text-white d-block">{{card.name}}</h6>
-                                                                  <small>{{card.Experience}} yeras</small>
+                                                                  <h6 class="my-0 text-white d-block">{{card.catererTeamName}}</h6>
+                                                                  <small>{{card.experience}} years</small>
                                                             </div>
                                                       </div>
                                                 </div>
@@ -99,6 +98,7 @@
                   </div>
             </section>
 
+            <!-- DESKTOP-LS5R3C6\SQLEXPRESS -->
 
 
       </div>

@@ -8,7 +8,7 @@ public class Catering_FoodItems
       public Guid FoodItemsId { get; set; }
 
       [ForeignKey("CateringId")]
-      [JsonIgnore]
+      [JsonIgnore]  
       public Catering Catering { get; set; }
       [ForeignKey("FoodItemsId")]
       [JsonIgnore]

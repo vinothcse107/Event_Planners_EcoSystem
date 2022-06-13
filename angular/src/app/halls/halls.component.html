@@ -60,17 +60,15 @@
         </nav>
         <section class="wrapper">
             <div class="container mx-auto mt-4">
-          
               <div class="row">
-                <div class="col-md-4" *ngFor="let card of data | hallSearch:searchString:'Location' ; let i = index">
+                <div class="col-md-4" *ngFor="let card of halls | hallSearch:searchString:'location' ; let i = index">
                   <div class="card text-white card-has-bg click-col mr-3"  style="width: 18rem;"
                     style="background-image:url();">
-                    <img class="card-img d-none" src={{card.img}}
+                    <img class="card-img d-none" src={{card.displayImg}}
                       alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
                     <div class="card-img-overlay d-flex flex-column">
                       <div class="card-body">
-                        <h4 class="card-title mt-3 "><a class="text-white" (click)="View(card.id)"> {{card.Description}}</a></h4>
-                       
+                        <h4 class="card-title mt-3 "><a class="text-white" (click)="View(card.hallId)">{{card.description}} {{card.hallName}}</a></h4>
                       </div>
                       <div class="card-footer">
                         <div class="media">
@@ -78,20 +76,15 @@
                             src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"
                             alt="Generic placeholder image" style="max-width:50px">
                           <div class="media-body">
-                            <h6 class="my-0 text-white d-block">{{card.HallName}}</h6>
-                            <small>{{card.Location}}</small>
+                            <h6 class="my-0 text-white d-block">{{card.hallName}}</h6>
+                            <small> {{card.hallLocation}}</small>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-               
               </div>
-          
             </div>
           </section>
-          
-
-       
 </div>
